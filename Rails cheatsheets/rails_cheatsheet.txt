@@ -1,0 +1,123 @@
+﻿/----------------------------------general commands-----------------------------/
+rails new App_Name
+rails new App_Name --skip-test-unit
+bundle install
+bundle install --without production                 (for local dev, no pg)
+rails server (rails s)
+rails console (rails c)
+rails generate (rails g)
+rails dbconsole (rails db)
+-----------------------------------------------------------------------------------------
+
+
+
+
+/--------------------------------generation commands---------------------------/
+rails generate scaffold User name:string email:string
+rails generate scaffold Micropost content:string user_id:integer
+bundle exec rake db:migrate
+
+
+rails generate controller StaticPages home
+vim app/views/static_pages/home.html.erb
+vim public/hello.html
+------------------------------------------------------------------------------------------
+
+
+
+
+
+
+/---------------------------create/delete controllers,models---------------------/
+rails generate controller FooBars baz quux
+rails destroy controller FooBars baz quux
+rails generate model Foo bar:string baz:integer
+rails destroy model Foo
+-------------------------------------------------------------------------------------------
+
+
+
+
+/---------------------------------database operations-------------------------------/
+rake db:migrate                (updates database schema)
+rake db:rollback
+rake db:migrate VERSION=0
+rake db:seed
+
+
+heroku run rake db:migrate
+heroku run rake db:seed
+
+
+rails generate migration AddDirectorToMovies director:string
+rake db:test:prepare                 (loads test schema to db)
+rake db:migrate
+--------------------------------------------------------------------------------------------
+
+
+
+
+/----------------------------------------testing------------------------------------------/
+rails generate cucumber:install capybara 
+rails generate cucumber_rails_training_wheels:install 
+rails generate rspec:install
+
+
+rails generate integration_test static_pages
+~~~~~~~~~~~~~~~~~~
+describe "Home page" do
+        it "should have the content 'Sample App'" do
+                visit '/static_pages/home'
+                page.should have_content('Sample App')
+        end
+end
+~~~~~~~~~~~~~~~~~~
+
+
+bundle exec rspec spec/requests/static_pages_spec.rb
+rake spec   (for running rspec)
+rake cucumber  (for running cucumber)
+---------------------------------------------------------------------------------------------
+
+
+
+
+/------------------------------------default gemfile-------------------------------------/
+source 'http://rubygems.org'
+
+
+gem 'rails', '3.2.14'
+
+
+# for Heroku deployment - as described in Ap. A of ELLS book
+group :development, :test do
+  gem 'sqlite3'
+  gem 'ruby-debug19'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'rspec-rails'
+end
+
+
+group :test do
+  gem 'cucumber-rails'
+  gem 'cucumber-rails-training-wheels'
+end
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
+
+group :assets do
+  gem 'therubyracer', '~> 0.12.0'
+  gem 'sass-rails', '~> 3.2.6'
+  gem 'coffee-rails', '~> 3.2.2'
+  gem 'uglifier'
+end
+
+
+gem 'jquery-rails'
+gem 'haml'
+-------------------------------------------------------------------------------------------------

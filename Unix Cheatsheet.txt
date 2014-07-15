@@ -1,0 +1,18 @@
+grep "pattern" fileName
+-x (exact match)
+-v (exact unmatch)
+-w (full words)
+-o (output matched string, not line)
+-i (ignore case)
+-r (curr dir, and subdirs)
+-c (count # matches)
+
+
+
+curl
+scp your_username@remotehost.edu:foobar.txt /some/local/directory
+scp foobar.txt your_username@remotehost.edu:/remote/directory
+
+puts "boring? " + line.inspect (debugging)
+
+local scoping

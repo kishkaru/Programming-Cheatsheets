@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>HTML Cheatsheet</title>
+<!-- Base url -->
+<base url="kishmaster.us.to"> 
+
+<meta name="keywords" content="HTML, meta tags, metadata"> 
+<meta name="description" content="Contains info about meta tags">
+<meta name="revised" content="Kishan, 1/16/2013">
+<!--
+<meta http-equiv="refresh" content="1000">
+ --> <!-- auto refresh page -->
+<meta http-equiv="Content-Script-Type" content="text/JavaScript"> <!-- default scripting lang -->
+</head>
+
+<body>
+<h1>A Heading</h1>
+
+<br>
+<p><strong>Attention:</strong> Please leave the door open.</p> <!-- bold -->
+<p>Strawberries are <em>delicious</em>!</p> <!-- italics -->
+
+<hr> <!-- horizontal line -->
+<ul> <!-- bullet points -->
+<li>First element<a name="target"></a></li>
+<li>Second element</li>
+</ul>
+<ol> <!-- ordered list -->
+<li>First ordered element</li>
+<li>Fecond ordered element</li>
+</ol>
+
+<br>
+<a href="http://www.html.am/html-codes/links/" target="_blank">HTML links</a> <!-- link -->
+<br>
+<a href="#target">Jump to Strawberries</a> <!-- anchor -->
+<br> <br>
+<img src="/pix/smile.gif" alt="Smile"> <!-- embed image -->
+<a href="http://www.travel-explorer.com/"><img src="200x150.jpg"></a> <!-- clicky img -->
+
+<br> <br>
+
+<form action="" method="get">
+
+	<input type="text" name="Text" value="" /> <!-- text box -->
+	<br>
+	<input type="radio" name="schools" value="berkeley" /> UC Berkeley <!-- radio box -->
+	<input type="radio" name="schools" value="stanford" /> Stanford
+	<br>
+	<input type="checkbox" name="technology" value="HTML" /> I know HTML <!-- check box -->
+	<input type="checkbox" name="technology" value="CSS" /> I know CSS
+	<br>
+	<select> <!-- drop-down box -->
+	  <option value ="Berkeley">Berkeley</option>
+	  <option value ="Oakland">Oakland</option>
+	  <option value ="Richmond">Richmond</option>
+	  <option value ="San Fransisco">San Fransisco</option>
+	</select>
+	<input type="button" onclick="" value="A Button" /> <!-- button -->
+	<br> <br>
+
+<input type="submit" value="Submit" /> <!-- submit the form -->
+</form>
+
+<br> <!-- inline frame -->
+<iframe src="iframe_tag_example.cfm" width="500" height="300" seamless></iframe>
+
+<hr>
+<script type="text/javascript"> <!-- inline JS script -->
+ alert("I am a script. I ran first!")
+</script>
+<input type="button" value="Click me..." onclick="alert('Thanks, I feel better now!')">
+
+<script type="text/javascript" src="external_scripts.js"></script> <!-- external JS file -->
+
+<noscript>
+You need JavaScript enabled to view the content on this page.
+</noscript>
+
+
+</body>
+</html>

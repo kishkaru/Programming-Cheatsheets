@@ -1,0 +1,36 @@
+###imports
+@import utils._
+@import _root_.company.product.core._
+
+Hello @customer.name!
+Hello @(customer.firstName + customer.lastName)!
+Hello @{val name = customer.firstName + customer.lastName; name}!
+
+
+###parameters
+@(customer: Customer, orders: List[Order])
+@(title: String, scripts: Html = Html(""))(content: Html)
+
+###iterating
+<ul>
+@for(p <- products) {
+  <li>@p.name ($@p.price)</li>
+}
+</ul>
+
+###conditionals
+@if(items.isEmpty) {
+  <h1>Nothing to display</h1>
+} else {
+  <h1>@items.size items!</h1>
+}
+
+###reusable values
+@defining(user.firstName + " " + user.lastName) { fullName =>
+  <div>Hello @fullName</div>
+}
+
+###comments
+@*********************
+* This is a comment *
+*********************@
