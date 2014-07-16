@@ -1,0 +1,67 @@
+Basic
+=======
+cd
+ls
+pwd
+mv
+cp
+rm
+mkdir
+clear
+exit
+
+Utility
+========
+ssh
+pssh
+scp
+rsync
+kill
+service
+tar -xzvf
+script
+awk
+find . -name '*.cfg'
+screen
+uname -a
+
+Filesystem
+==========
+df -f
+mount
+umount
+chmod
+chown
+which
+whoami
+hostname
+
+Package Manager
+===============
+apt-get update
+apt-get upgrade
+apt-get install
+apt-get remove
+
+Text
+=========
+echo
+cat
+head
+tail
+more
+less
+grep -rni
+diff
+wc -l 
+
+Network
+=============
+ifconfig
+ping
+curl
+http
+ncat
+nmap
+netstat
+
