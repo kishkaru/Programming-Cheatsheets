@@ -1,83 +1,165 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE HTML>
 <html>
-<head>
-<title>HTML Cheatsheet</title>
-<!-- Base url -->
-<base url="kishmaster.us.to"> 
+	<head>
+		<title>HTML Cheatsheet</title>
+		<!-- Base url -->
+		<base url="kishmaster.us.to"> 
 
-<meta name="keywords" content="HTML, meta tags, metadata"> 
-<meta name="description" content="Contains info about meta tags">
-<meta name="revised" content="Kishan, 1/16/2013">
-<!--
-<meta http-equiv="refresh" content="1000">
- --> <!-- auto refresh page -->
-<meta http-equiv="Content-Script-Type" content="text/JavaScript"> <!-- default scripting lang -->
-</head>
+		<meta name="description" content="Contains info about meta tags" />
+		<meta name="keywords" content="HTML, meta tags, metadata" /> 
+		<meta name="robots" content="nofollow" />
+		<meta name="revised" content="kishan, 7/17/2014">
+		<meta http-equiv="author" content="kishan" />
+	</head>
 
-<body>
-<h1>A Heading</h1>
+	<body>
+		<h1>A Heading</h1>
+		<br />
 
-<br>
-<p><strong>Attention:</strong> Please leave the door open.</p> <!-- bold -->
-<p>Strawberries are <em>delicious</em>!</p> <!-- italics -->
+		<p>
+			<b>BOLD</b> 
+			<i>italics</i>
+			<sup>superscript</sup>
+			<sub>subscript</sub>
 
-<hr> <!-- horizontal line -->
-<ul> <!-- bullet points -->
-<li>First element<a name="target"></a></li>
-<li>Second element</li>
-</ul>
-<ol> <!-- ordered list -->
-<li>First ordered element</li>
-<li>Fecond ordered element</li>
-</ol>
+			<hr />  <!-- horizontal line -->
+			<blockquote>long quotes</blockquote>
+			<q>inline quote</q>
+			<address>here is an address</address>
+		</p>
 
-<br>
-<a href="http://www.html.am/html-codes/links/" target="_blank">HTML links</a> <!-- link -->
-<br>
-<a href="#target">Jump to Strawberries</a> <!-- anchor -->
-<br> <br>
-<img src="/pix/smile.gif" alt="Smile"> <!-- embed image -->
-<a href="http://www.travel-explorer.com/"><img src="200x150.jpg"></a> <!-- clicky img -->
+		<ul> <!-- bullet points -->
+			<li>First element</li>
+			<li>Second element</li>
+		</ul>
+		<ol> <!-- ordered list -->
+			<li>First ordered element</li>
+			<li>Fecond ordered element</li>
+		</ol>
 
-<br> <br>
+		<br />
+		<!-- links -->
+		<a href="/">links</a>
+		<a href="#target">Jump</a> <!-- anchor -->
+		<a href="mailto:someone@something.com">email</a> 
+		<a href="http://google.com" target="_blank">new window</a>
 
-<form action="" method="get">
+		<br />
+		<!-- image -->
+		<img src="/pix/smile.gif" alt="Smile" title="a simile" width="200" height="100" /><br />
+		<!-- clicky img -->
+		<a href="http://www.travel-explorer.com/"><img src="200x150.jpg"></a> 
 
-	<input type="text" name="Text" value="" /> <!-- text box -->
-	<br>
-	<input type="radio" name="schools" value="berkeley" /> UC Berkeley <!-- radio box -->
-	<input type="radio" name="schools" value="stanford" /> Stanford
-	<br>
-	<input type="checkbox" name="technology" value="HTML" /> I know HTML <!-- check box -->
-	<input type="checkbox" name="technology" value="CSS" /> I know CSS
-	<br>
-	<select> <!-- drop-down box -->
-	  <option value ="Berkeley">Berkeley</option>
-	  <option value ="Oakland">Oakland</option>
-	  <option value ="Richmond">Richmond</option>
-	  <option value ="San Fransisco">San Fransisco</option>
-	</select>
-	<input type="button" onclick="" value="A Button" /> <!-- button -->
-	<br> <br>
+		<figure>
+			<img src="/pix/smile.gif" alt="Smile" />
+			<br />
+			<figcaption>this is the caption</figcaption>
+		</figure>
 
-<input type="submit" value="Submit" /> <!-- submit the form -->
-</form>
+		<!-- tables -->
+		<br />
+		<table>
+			<thead>
+				<tr>
+					<th></th>
+					<th>header</th>
+					<th>header2</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>header3</th>
+					<td>data1</td>
+					<td>data2</td>
+				</tr>
+			</tbody>
+		</table>
 
-<br> <!-- inline frame -->
-<iframe src="iframe_tag_example.cfm" width="500" height="300" seamless></iframe>
+		<form action="http://example.com/subscribe.php" method="get">
+		
+			<!-- text box -->
+			<p>username: <input type="text" name="username" /></p>
+			<p>password: <input type="password" name="pass" /></p>
+			<p>comments? <textarea name=comments"></textarea></p>
+			
+			<!-- radio box -->
+			<input type="radio" name="genre" value="pop" /> Pop
+			<input type="radio" name="genre" value="rock" checked /> Rock
+			
+			<br />
+			<!-- check box -->
+			<input type="checkbox" name="genre" value="jazz" /> Jazz
+			<input type="checkbox" name="genre" value="classical" checked /> Classical
+			
+			<br />
+			<!-- drop-down box -->
+			<select name="devices">
+				<option value="ipod">iPod</option>
+				<option value="radio" selected>Radio</option>
+			</select>
+			
+			<br />
+			<!-- multi drop-down box -->
+			<select name="instruments" multiple>
+				<option value="guitar">Guitar</option>
+				<option value="drums" selected>Drums</option>
+			</select>
+			
+			<br />
+			<!-- file upload -->
+			<input type="file" name="user-song" />
+			<input type="submit" name="subscribe" value="Subscribe" />
+			
+			<br />
+			<!-- button -->
+			<button>A Button? </button>
+			<input type="hidden" name="page" value="root" />
+			
+			<!-- grouped fieldset -->
+			<fieldset>
+				<legend>Contact details</legend>
+				
+				<label for="email">Email: <br />
+				<input type="email" name="email" required /><br />
+				
+				<label for="url">Website: <br />
+				<input type"url" name="website" required /><br />
+				
+				<label for="date">Date: <br />
+				<input type="date" name="depart" /><br />
+				
+				<label for="search">Search: <br />
+				<input type="search" name="search" />
+				<input type="submit" value="Search" />
+			</fieldset>
+		
+		</form>
 
-<hr>
-<script type="text/javascript"> <!-- inline JS script -->
- alert("I am a script. I ran first!")
-</script>
-<input type="button" value="Click me..." onclick="alert('Thanks, I feel better now!')">
+		<div id="header">
+			<span>some text here</span>
+		</div>
+		
+		<br />
+		<!-- inline frame -->
+		<iframe
+			width="500"
+			height="300"
+			src="iframe_tag_example.cfm"
+			seamless>
+		</iframe>
 
-<script type="text/javascript" src="external_scripts.js"></script> <!-- external JS file -->
+		<hr>
+		<!-- inline JS script -->
+		<script type="text/javascript"> 
+			alert("I am a script. I ran first!")
+		</script>
+		<input type="button" value="Click me..." onclick="alert('Thanks, I feel better now!')">
 
-<noscript>
-You need JavaScript enabled to view the content on this page.
-</noscript>
+		<script type="text/javascript" src="external_scripts.js"></script> <!-- external JS file -->
 
+		<noscript>
+			You need JavaScript enabled to view the content on this page.
+		</noscript>
 
-</body>
+	</body>
 </html>
