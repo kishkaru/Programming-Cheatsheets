@@ -44,6 +44,7 @@ a[0..2] inclusive slice
 a[0...2] exclusive slice
 a.sort
 a.each do |ele|
+a.each_with_index do |ele, index|
 a.collect do |ele| (like map, ret new arr)
 a.reject do |ele| (like collect, reject if bool true)
 a.reverse
