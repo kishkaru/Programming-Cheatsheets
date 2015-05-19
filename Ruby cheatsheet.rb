@@ -26,41 +26,42 @@ ARRAYS
 ======
 a = ['one', 'two']
 a = []
-a = Array.new
-a.length OR a.size
+a = Array.new(num_ele, inital_value)
+a.size
 a.empty?
 a.include?
+a.sort
+a.reverse
 
-a.push("y")
-a << "y"
-a.pop deletes from end
+a.push("y") == a << "y"
+a.pop (deletes from end)
 a.delete_at(0)
 a.delete("x")
-a.shift shift left
-a.unshift("x") shift right
+a.shift (shifts left)
+a.unshift("x") (shifts right)
 
-a.slice!(0..1) returns slice
 a[0..2] inclusive slice
 a[0...2] exclusive slice
-a.sort
+(0...2).to_a == [*(0..2)]
+
 a.each do |ele|
+a.each_index do |ele|
 a.each_with_index do |ele, index|
-a.collect do |ele| (like map, ret new arr)
-a.reject do |ele| (like collect, reject if bool true)
-a.reverse
+a.map do |ele| (ret new arr)
+a.reject do |ele| (like map, reject if bool true)
 
 STRING
 =======
-str.chars
 str.downcase
 str.split(':')
+str.reverse!
+str.size
+str.include?
 str.chomp (remove newline)
 str.chop (remove last char)
-str.sort
-str.reverse!
-str.uniq
-str.include?
-str.length
+str.chars
+str.chars.uniq
+str.chars.sort
 gsub!(pattern, "?" => '.')
 eql?
 .to_s
@@ -69,8 +70,8 @@ eql?
 HASH
 ======
 map = {1 => 'x', 2 => 'y'}
-map = Hash.new(0)
-map.push(ele)
+map = Hash.new(initial_value)
+map[ele] == map.push(ele)
 
 map.each
 map.each_key do |key|
@@ -92,6 +93,9 @@ class Movie
 	def new_name=(n)
 		@name = n
 	end
+	
+	private def private_method
+  end
 end
 
 class.respond_to?("new")
@@ -101,17 +105,16 @@ self (refers to the object language)
 
 REGEX
 ========
-Regexp.new(/...../)
 ^ starts with
 $ ends with
-[ ] block of chars
-[0-1] range of chars
 . any char
 * repeat (0+)
 + repeat (1+)
+? (0 or 1 time)
 
 /pattern/.match("a string")
-=~ match
-!~ don't match
+Regexp.new(/...../)
+pattern =~ str (match)
+pattern !~ str (don't match)
 ( ) capturing
 [ ] $1 match data
