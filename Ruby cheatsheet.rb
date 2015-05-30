@@ -52,6 +52,7 @@ a.reject do |ele| (like map, reject if bool true)
 
 STRING
 =======
+str[0..1]
 str.downcase
 str.split(':')
 str.reverse!
