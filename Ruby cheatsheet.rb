@@ -30,8 +30,10 @@ a = Array.new(num_ele, inital_value)
 a.size
 a.empty?
 a.include?
+a.index(e)
 a.sort
 a.reverse
+a.join
 
 a.push("y") == a << "y"
 a.pop (deletes from end)
