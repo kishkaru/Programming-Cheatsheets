@@ -33,7 +33,7 @@ a.include?
 a.index(e)
 a.sort
 a.reverse
-a.join
+a.join (ret string)
 
 a.push("y") == a << "y"
 a.pop (deletes from end)
@@ -60,6 +60,7 @@ str.split(':')
 str.reverse!
 str.size
 str.include?
+str.index(e)
 str.chomp (remove newline)
 str.chop (remove last char)
 str.chars
@@ -81,6 +82,21 @@ map.each_key do |key|
 map.each_pair do |key,val|
 map.flatten
 map.join
+
+SET
+=====
+set = Set.new
+set = Set.new [1, 2]
+set.add(e)
+set.delete(e)
+set.size
+set.include?
+set.each
+
+set.subset?(set2)
+set.subtract(set2) (-)
+set.intersection(set2) (&)
+set.merge(set2) (|)
 
 CLASS
 ======
