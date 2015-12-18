@@ -25,6 +25,7 @@ find . -name '*.cfg'
 screen
 uname -a
 whatis
+du -hsx * | sort -rh | head -10 (largest files)
 
 #Filesystem
 ==========
