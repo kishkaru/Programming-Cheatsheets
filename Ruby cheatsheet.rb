@@ -22,6 +22,11 @@ end
 #{1+1} metaprogramming
 any OBJECT except (nil, false) is true
 
+=begin
+this is a
+multi line comment
+=end
+
 ARRAYS
 ======
 a = ['one', 'two']
