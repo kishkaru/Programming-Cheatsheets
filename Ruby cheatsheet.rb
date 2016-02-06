@@ -87,6 +87,7 @@ map.each_key do |key|
 map.each_pair do |key,val|
 map.flatten
 map.join
+map.sort_by { |k,v| v }
 
 SET
 =====
