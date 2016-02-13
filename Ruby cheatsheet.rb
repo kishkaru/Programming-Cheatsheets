@@ -87,6 +87,7 @@ map.each_key do |key|
 map.each_pair do |key,val|
 map.flatten
 map.join
+map.select { |k,v| v > 0 } (ret new hash)
 map.sort_by { |k,v| v }
 
 SET
