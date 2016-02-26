@@ -87,8 +87,8 @@ module Entertainment
     include Math # bring in module as instance meths
     extend Math # bring in module as class meths
     
-  	@@total_movies = 0
-  	attr_accessor :name, :year
+    @@total_movies = 0
+    attr_accessor :name, :year
   
     def initialize(name, year)
       @name = name
@@ -96,23 +96,22 @@ module Entertainment
       @@total_movies += 1
     end
   	
-  	def new_name=(n)
-  		@name = n
-  	end
-  	
-  	def self.get_total_movies
-  	  @@total_movies
-  	end
-  	
-  	private 
-  	def private_method; end
+    def new_name=(n)
+      @name = n
+    end
+  
+    def self.get_total_movies
+      @@total_movies
+    end
+  
+    private 
+    def private_method; end
   end
 end
 
 class.respond_to?("new")
 class.instance_of?(className)
-can add any method to an existing class
-self (refers to the object language)
+class.is_a?(className)
 
 REGEX
 ========
