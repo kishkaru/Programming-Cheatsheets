@@ -1,32 +1,3 @@
-$ ruby inventory.rb > out.txt
-irb> load 'describe.rb'
-irb> inv_array = File.open('inv.txt').readlines
-old_env - new_env
-
-ARGV[0]
-if $0 == __FILE__
-	..do something..
-end
-
-out = (in < 0) ? 0 : in
-
-carry() if raining?()
-arr.pop unless arr.empty?
-
-def test_X
-	assert_equal('expected', 'actual')
-	assert('value')
-	assert_match(/pattern/, actual)
-end
-
-#{1+1} metaprogramming
-any OBJECT except (nil, false) is true
-
-=begin
-this is a
-multi line comment
-=end
-
 ARRAYS
 ======
 a = ['one', 'two']
@@ -54,8 +25,10 @@ a[0...2] exclusive slice
 a.each do |ele|
 a.each_index do |ele|
 a.each_with_index do |ele, index|
+  
 a.map do |ele| (ret new arr)
-a.reject do |ele| (like map, reject if bool true)
+a.select { |ele| ele.is_a? Symbol } (keep if bool true, ret new arr)
+a.reject { |ele| ele.is_a? Symbol } 
 
 STRING
 =======
@@ -87,7 +60,7 @@ map.each_key do |key|
 map.each_pair do |key,val|
 map.flatten
 map.join
-map.select { |k,v| v > 0 } (ret new hash)
+map.select { |k,v| v > 0 } (keep if bool true, ret new hash)
 map.sort_by { |k,v| v }
 
 SET
@@ -144,3 +117,48 @@ pattern =~ str (match)
 pattern !~ str (don't match)
 ( ) capturing
 [ ] $1 match data
+
+PROCS, LAMBDAS, BLOCKS
+======
+l = lambda { puts "hello" }
+l.call
+
+p = Proc.new do |x|
+  puts x*2
+end
+p.call(5)
+
+def foo(x)
+  yield(x)
+end
+
+foo(5) &p
+
+out = (in < 0) ? 0 : in
+carry() if raining?()
+arr.pop unless arr.empty?
+
+String interpolation
+"#{1+1}" #2 
+any OBJECT except (nil, false) is true
+
+=begin
+this is a
+multi line comment
+=end
+
+$ ruby inventory.rb > out.txt
+irb> load 'describe.rb'
+irb> inv_array = File.open('inv.txt').readlines
+old_env - new_env
+
+ARGV[0]
+if $0 == __FILE__
+	..do something..
+end
+
+def test_X
+  assert_equal('expected', 'actual')
+  assert('value')
+  assert_match(/pattern/, actual)
+end
