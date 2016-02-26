@@ -80,20 +80,32 @@ set.merge(set2) (|)
 
 CLASS
 ======
-class Movie
-	@name
-	@@year
-	attr_accessor :name, :year
-
-	def initialize
-		@name = popcorn
-	end
-	
-	def new_name=(n)
-		@name = n
-	end
-	
-	private def private_method
+module Entertainment
+  require 'date'
+  
+  class Movie
+    include Math # bring in module as instance meths
+    extend Math # bring in module as class meths
+    
+  	@@total_movies = 0
+  	attr_accessor :name, :year
+  
+    def initialize(name, year)
+      @name = name
+      @year = year
+      @@total_movies += 1
+    end
+  	
+  	def new_name=(n)
+  		@name = n
+  	end
+  	
+  	def self.get_total_movies
+  	  @@total_movies
+  	end
+  	
+  	private 
+  	def private_method; end
   end
 end
 
