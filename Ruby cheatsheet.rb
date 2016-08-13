@@ -3,13 +3,15 @@ ARRAYS
 a = ['one', 'two']
 a = []
 a = Array.new(num_ele, inital_value)
+
 a.size
 a.empty?
-a.include?
+a.include?(e)
 a.index(e)
+a.uniq
 a.sort
 a.reverse
-a.join (ret string)
+a.join (ret string concat of elems)
 
 a.push("y") == a << "y"
 a.pop (deletes from end)
@@ -23,9 +25,10 @@ a[0...2] exclusive slice
 (0...2).to_a == [*(0..2)]
 
 a.each do |ele|
-a.each_index do |ele|
+a.each_index do |index|
 a.each_with_index do |ele, index|
-  
+a.each_with_object(obj) do |ele, obj| (ret final obj)
+
 a.map do |ele| (ret new arr)
 a.select { |ele| ele.is_a? Symbol } (keep if bool true, ret new arr)
 a.reject { |ele| ele.is_a? Symbol } 
