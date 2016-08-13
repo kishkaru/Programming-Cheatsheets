@@ -110,9 +110,9 @@ module Entertainment
       @last_added
     end
   
-  	def self.last_added=(name)
-	    @last_added = name
-	  end
+    def self.last_added=(name)
+      @last_added = name
+    end
   
     def self.total_movies
       @@total_movies
