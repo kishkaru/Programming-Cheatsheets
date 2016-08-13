@@ -11,7 +11,7 @@ a.index(e)
 a.uniq
 a.sort
 a.reverse
-a.join (ret string concat of elems)
+a.join(delimiter) (ret string concat of elems)
 
 a.push("y") == a << "y"
 a.pop (deletes from end)
@@ -40,15 +40,15 @@ str.downcase
 str.split(':')
 str.reverse!
 str.size
-str.include?
-str.index(e)
+str.include?(str)
+str.index(str)
 str.chomp (remove newline)
 str.chop (remove last char)
+
 str.chars
 str.chars.uniq
 str.chars.sort
-gsub!(pattern, "?" => '.')
-eql?
+gsub(/pattern/, {'?' => '.'})
 .to_s
 .to_i(base)
 
@@ -124,13 +124,14 @@ $ ends with
 * repeat (0+)
 + repeat (1+)
 ? (0 or 1 time)
-
-/pattern/.match("a string")
-Regexp.new(/...../)
-pattern =~ str (match)
-pattern !~ str (don't match)
+[] or
 ( ) capturing
-[ ] $1 match data
+
+Regexp.new(/...../)
+/pattern/.match("a string") (ret matchdata)
+matchdata[n]
+pattern =~ str (index of first match, $~ matchdata)
+pattern !~ str (don't match)
 
 PROCS, LAMBDAS, BLOCKS
 ======
