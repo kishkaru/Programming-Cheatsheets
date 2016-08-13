@@ -56,25 +56,29 @@ HASH
 ======
 map = {1 => 'x', 2 => 'y'}
 map = Hash.new(initial_value)
-map[ele] == map.push(ele)
+map[k] = v
+map.has_key?(k)
+map.has_value?(v)
+map.key(v)
+map.keys
+map.delete(k)
+map.invert
+map.flatten (ret arr)
 
-map.each
 map.each_key do |key|
 map.each_pair do |key,val|
-map.flatten
-map.join
 map.select { |k,v| v > 0 } (keep if bool true, ret new hash)
-map.sort_by { |k,v| v }
+map.to_a (ret nested arr)
+map.sort_by { |k,v| v } (ret nested arr)
 
 SET
 =====
-set = Set.new
 set = Set.new [1, 2]
 set.add(e)
+set.include?(e)
 set.delete(e)
 set.size
-set.include?
-set.each
+set.each do |e|
 
 set.subset?(set2)
 set.subtract(set2) (-)
