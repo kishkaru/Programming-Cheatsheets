@@ -144,7 +144,7 @@ matchdata[n]
 pattern =~ str (index of first match, $~ matchdata)
 pattern !~ str (don't match)
 
-PROCS, LAMBDAS, BLOCKS
+PROCS, LAMBDAS
 ======
 l = lambda { puts "hello" }
 l.call
@@ -154,11 +154,22 @@ p = Proc.new do |x|
 end
 p.call(5)
 
+BLOCKS
+======
 def foo(x)
   yield(x)
 end
+foo(5) {|x| puts x*2}
 
-foo(5) &p
+def bar(x, &block)
+  block.call(x)
+end
+bar(5) {|x| puts x*2}
+
+def baz(x)
+  yield(x)
+end
+baz(5, &p)
 
 out = (in < 0) ? 0 : in
 carry() if raining?()
@@ -181,10 +192,4 @@ old_env - new_env
 ARGV[0]
 if $0 == __FILE__
 	..do something..
-end
-
-def test_X
-  assert_equal('expected', 'actual')
-  assert('value')
-  assert_match(/pattern/, actual)
 end
