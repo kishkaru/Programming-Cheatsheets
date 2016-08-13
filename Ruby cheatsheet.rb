@@ -94,31 +94,38 @@ module Entertainment
     include Math # bring in module as instance meths
     extend Math # bring in module as class meths
     
-    @@total_movies = 0
-    attr_accessor :name, :year
+    # vars private by default
+    @@total_movies = 0 # class var (shared with super/subclasses)
+    @last_added = nil # class instance var
+    attr_accessor :name, :year # instance var
   
     def initialize(name, year)
       @name = name
       @year = year
+      self.class.last_added = name
       @@total_movies += 1
     end
   	
-    def new_name=(n)
-      @name = n
+    def self.last_added
+      @last_added
     end
   
-    def self.get_total_movies
+  	def self.last_added=(name)
+	    @last_added = name
+	  end
+  
+    def self.total_movies
       @@total_movies
     end
-  
+    
     private 
     def private_method; end
   end
 end
 
 class.respond_to?("new")
-class.instance_of?(className)
 class.is_a?(className)
+class.instance_of?(className) # does not incl. subclasses
 
 REGEX
 ========
