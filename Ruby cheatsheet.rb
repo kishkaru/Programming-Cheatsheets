@@ -171,6 +171,21 @@ def baz(x)
 end
 baz(5, &p)
 
+THREADS
+======
+t = Thread.new { puts msg }
+t = Thread.new { RunnableClass.new.run }
+t.join
+t.exit
+Thread.kill(t)
+
+LOCKS
+======
+lock = ::Monitor.new
+lock.synchronize { puts msg }
+semaphore = Mutex.new
+semaphore.synchronize { puts msg }
+
 out = (in < 0) ? 0 : in
 carry() if raining?()
 arr.pop unless arr.empty?
