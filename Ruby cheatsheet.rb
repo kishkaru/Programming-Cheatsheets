@@ -40,13 +40,15 @@ STRING
 str[0..1]
 str.downcase
 str.split(':')
-str.reverse!
+str.reverse
 str.size
 str.include?(str)
 str.index(str)
 str.chomp (remove newline)
 str.chop (remove last char)
 
+str << str2
+str.prepend(str2)
 str.chars (ret arr)
 str.count(str_of_chars)
 .to_s
