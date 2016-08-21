@@ -1,8 +1,8 @@
 ARRAYS
 ======
 a = ['one', 'two']
-a = []
 a = Array.new(num_ele, inital_value)
+a = Array.new(rows) { Array.new(cols) }
 
 a.size
 a.empty?
@@ -11,6 +11,7 @@ a.index(e)
 a.uniq
 a.sort
 a.reverse
+a.min(num_mins)
 a.join(delimiter) (ret string concat of elems)
 
 a.push("y") == a << "y"
