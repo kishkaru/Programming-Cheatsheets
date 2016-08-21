@@ -56,6 +56,7 @@ HASH
 ======
 map = {1 => 'x', 2 => 'y'}
 map = Hash.new(initial_value)
+map = Hash.new { |h,k| h[k] = [] }
 map[k] = v
 map.has_key?(k)
 map.has_value?(v)
