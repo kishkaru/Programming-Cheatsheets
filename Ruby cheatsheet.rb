@@ -45,10 +45,8 @@ str.index(str)
 str.chomp (remove newline)
 str.chop (remove last char)
 
-str.chars
-str.chars.uniq
-str.chars.sort
-gsub(/pattern/, {'?' => '.'})
+str.chars (ret arr)
+str.count(str_of_chars)
 .to_s
 .to_i(base)
 
@@ -144,6 +142,12 @@ Regexp.new(/...../)
 matchdata[n]
 pattern =~ str (index of first match, $~ matchdata)
 pattern !~ str (don't match)
+
+str.scan(/pattern/)  (ret arr of matches)
+str.gsub(/pattern/).to_a (ret arr of matches)
+gsub(/pattern/, {'?' => '.'})
+gsub(/./, '*')
+gsub(/./) {|c| '*'}  
 
 PROCS, LAMBDAS
 ======
