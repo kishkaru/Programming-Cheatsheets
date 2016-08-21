@@ -32,6 +32,7 @@ a.each_with_object(obj) do |ele, obj| (ret final obj)
 a.map do |ele| (ret new arr)
 a.select { |ele| ele.is_a? Symbol } (keep if bool true, ret new arr)
 a.reject { |ele| ele.is_a? Symbol } 
+a.reduce(inital_value, operator) (ret single val)
 
 STRING
 =======
