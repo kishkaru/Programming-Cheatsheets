@@ -11,6 +11,7 @@ a.index(e)
 a.uniq
 a.sort
 a.reverse
+a.count(e)
 a.min(num_mins)
 a.max_by { |e| e.size }
 a.join(delimiter) (ret string concat of elems)
