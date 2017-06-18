@@ -71,7 +71,7 @@ l.forEach(e -> { })
 
 CLASS
 ======
-public class Car {
+public class final Car {
     private int gear;
     private String secret;
     private static classVar;
@@ -84,6 +84,9 @@ public class Car {
     
     public static void classMethod() { } //no access to instance vars/meths
     protected final void finalMethod() { } //subclass cannot override
+    
+    static { } //static/class initializer (once, ever)
+    { } //instance initializer (once per instance)
 }
 
 GENERICS
@@ -115,15 +118,67 @@ m.reset()
 
 FUNCTIONS
 =========
+// in: Obj
+Consumer<String> c1 = s -> s.toUpper();
+c1.accept("foo");
 
+// out: Obj
+Supplier<Integer> randomSupplier = () -> random.nextInt();
+supplier.get();
+
+// in: Obj, out: boolean
+Predicate<Employee> cond = employee -> employee.getAge() > 30;
+boolean b = cond.test(emp);
+
+// in: Obj, out: Obj
+Function<Employee, String> getLast = (Employee emp) -> {
+	return employee.lastName;
+}
+String last = getLast.apply(emp);
+Function chainedFunction = getLast.andThen(upperCase);
 
 STREAMS
 ======
+Stream<Integer> intStream = Stream.of(1,2,3);
+List<Integer> list = intStream.map(i -> i * 2).collect(Collectors.toList());
 
+list.stream()
+        .map(someFunction)
+        .filter(name -> name.startsWith("A"))
+        .sorted()
+        .count();
+
+departments.stream()
+	.collect(ArrayList::new, ArrayList.add, ArrayList.addAll);
 
 THREADS
 ======
+new Thread() {
+	public void run() {
+		sout();
+	}
+}.start()
 
+Thread thread = new Thread(() -> sout());
+thread.start();
+thread.join();
 
 LOCKS
 ======
+Lock lock = new ReentrantLock();
+lock.lock();
+lock.unlock();
+
+public synchronized void increment() { }
+synchronized(this) { }
+
+TESTING
+=======
+@Before //@After
+public void setup() { // runs before each test case }
+public void tearDown() { // run after each test case }
+
+@BeforeClass //@AfterClass
+public static void beforeClass() { // runs before test suite }
+
+@Test(expected = IllegalArgumentException.class) {}
