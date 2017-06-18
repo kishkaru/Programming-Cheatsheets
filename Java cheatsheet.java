@@ -71,8 +71,27 @@ l.forEach(e -> { })
 
 CLASS
 ======
-abstract public class Test<T extends ArrayList & List> extends Object implements Runnable{
+public class Car {
+    private int gear;
+    private String secret;
+    private static classVar;
+    static final double PI = 3.14159;
     
+    public Car(gear) { 
+        this.gear = gear;
+        this.secret = "Secret";
+    }
+    
+    public static void classMethod() { } //no access to instance vars/meths
+    protected final void finalMethod() { } //subclass cannot override
+}
+
+GENERICS
+========
+public class Generic<T extends ArrayList & List> {
+    public <U> void test(U u) { }
+    public <T extends Comparable<T>> int countGrt(T[] arr, T elem) { }
+    public void print(Collection<?> c) { }
 }
 
 REGEX
