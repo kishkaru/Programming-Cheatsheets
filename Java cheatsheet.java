@@ -151,6 +151,10 @@ list.stream()
 departments.stream()
 	.collect(ArrayList::new, ArrayList.add, ArrayList.addAll);
 
+numbers.stream()
+     .map(i -> i.toString())
+     .collect(Collectors.joining(", "));
+
 THREADS
 ======
 new Thread() {
