@@ -1,5 +1,7 @@
 int[] arr = new int[10]
 int[] arr = {1,2,3}
+int[][] matrix = new int[10][10]
+int[][] matrix = {{1,2,3}, {4,5,6}}
 
 LIST
 ======
