@@ -115,8 +115,12 @@ str.replaceAll("x", "y")
 
 Pattern p = Pattern.compile("<h1>")
 Matcher m = p.matcher(str)
-m.matches()
+m.matches() [ret boolean]
 m.reset()
+while (m.find()) {
+    list.add(m.group());
+    count++;
+}
 
 FUNCTIONS
 =========
