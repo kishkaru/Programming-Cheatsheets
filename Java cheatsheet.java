@@ -35,6 +35,8 @@ str.substring(start, end) [exclusive slice]
 str.toLowerCase()
 str.length()
 str.charAt(i)
+str.toCharArray()
+str.chars().forEach()
 str.contains(str)
 str.indexOf(str)
 Arrays.asList(str.split(":"))
