@@ -73,6 +73,11 @@ s.isEmpty()
 for(Element e : l) { }
 l.forEach(e -> { })
 
+set.containsAll(set2) [subset s2]
+set.removeAll(set2) (-)
+set.retainAll(set2) (&)
+set.addAll(set2) (|)
+	
 CLASS
 ======
 public class final Car {
