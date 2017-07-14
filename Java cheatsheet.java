@@ -17,6 +17,7 @@ Collections.max(l, Comparator)
 Collections.swap(l, e1, e2)
 Collections.frequency(l, e)
 l.stream().distinct().count()
+l.toArray(new String[l.size()])
 String.join("", l)
 
 l.add(e)
