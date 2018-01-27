@@ -2,6 +2,8 @@ int[] arr = new int[10]
 int[] arr = {1,2,3}
 int[][] matrix = new int[10][10]
 int[][] matrix = {{1,2,3}, {4,5,6}}
+Arrays.toString(arr) [print prim/Obj list]
+IntStream.of(arr).boxed().collect(Collectors.toList()) [convert to List<>]
 
 LIST
 ======
@@ -17,7 +19,7 @@ Collections.max(l, Comparator)
 Collections.swap(l, e1, e2)
 Collections.frequency(l, e)
 l.stream().distinct().count()
-l.toArray(new String[l.size()]) [convert to String[])
+l.toArray(new Object[l.size()]) [convert to Object[])
 String.join("", l)
 
 l.add(e)
@@ -83,29 +85,27 @@ set.addAll(set2) (|)
 CLASS
 ======
 public class final Car {
-    private int gear;
-    private String secret;
-    private static classVar;
-    static final double PI = 3.14159;
+  private int gear;
+  private static classVar;
+  static final double PI = 3.14159;
     
-    public Car(gear) { 
-        this.gear = gear;
-        this.secret = "Secret";
-    }
+  public Car(gear) { 
+      this.gear = gear;
+  }
     
-    public static void classMethod() { } //no access to instance vars/meths
-    protected final void finalMethod() { } //subclass cannot override
-    
-    static { } //static/class initializer (once, ever)
-    { } //instance initializer (once per instance)
+  public static void classMethod() { } //no access to instance vars/meths
+  protected final void finalMethod() { } //subclass cannot override
+
+  static { } //static/class initializer (once, ever)
+  { } //instance initializer (once per instance)
 }
 
 GENERICS
 ========
 public class Generic<T extends ArrayList & List> {
-    public <U> void test(U u) { }
-    public <T extends Comparable<T>> int countGrt(T[] arr, T elem) { }
-    public void print(Collection<?> c) { }
+  public <U> void test(U u) { }
+  public <T extends Comparable<T>> int countGrt(T[] arr, T elem) { }
+  public void print(Collection<?> c) { }
 }
 
 REGEX
@@ -127,8 +127,8 @@ Matcher m = p.matcher(str)
 m.matches() [ret boolean]
 m.reset()
 while (m.find()) {
-    list.add(m.group());
-    count++;
+  list.add(m.group());
+  count++;
 }
 
 FUNCTIONS
@@ -158,17 +158,17 @@ Stream<Integer> intStream = Stream.of(1,2,3);
 List<Integer> list = intStream.map(i -> i * 2).collect(Collectors.toList());
 
 list.stream()
-        .map(someFunction)
-        .filter(name -> name.startsWith("A"))
-        .sorted()
-        .count();
+    .map(someFunction)
+    .filter(name -> name.startsWith("A"))
+    .sorted()
+    .count();
 
 departments.stream()
-	.collect(ArrayList::new, ArrayList.add, ArrayList.addAll);
+  .collect(ArrayList::new, ArrayList.add, ArrayList.addAll);
 
 numbers.stream()
-     .map(i -> i.toString())
-     .collect(Collectors.joining(", "));
+ .map(i -> i.toString())
+ .collect(Collectors.joining(", "));
 
 THREADS
 ======
@@ -200,4 +200,5 @@ public void tearDown() { // run after each test case }
 @BeforeClass //@AfterClass
 public static void beforeClass() { // runs before test suite }
 
+@Ignore("not ready yet")
 @Test(expected = IllegalArgumentException.class) {}
