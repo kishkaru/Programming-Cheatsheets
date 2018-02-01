@@ -2,8 +2,11 @@ int[] arr = new int[10]
 int[] arr = {1,2,3}
 int[][] matrix = new int[10][10]
 int[][] matrix = {{1,2,3}, {4,5,6}}
-Arrays.toString(arr) [print prim/Obj list]
-IntStream.of(arr).boxed().collect(Collectors.toList()) [convert to List<>]
+
+Arrays.sort(arr)
+Arrays.asList(arr) [List for Obj[]]
+IntStream.of(arr).boxed().collect(Collectors.toList()) [List for prim]
+Arrays.toString(arr) [print prim/Obj arr]
 
 LIST
 ======
@@ -19,7 +22,7 @@ Collections.max(l, Comparator)
 Collections.swap(l, i1, i2)
 Collections.frequency(l, e)
 l.stream().distinct().count()
-l.toArray(new Object[l.size()]) [convert to Object[])
+l.toArray(new Object[l.size()]) [convert to Obj[])
 String.join("", l)
 
 l.add(e)
