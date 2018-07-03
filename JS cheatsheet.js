@@ -1,123 +1,180 @@
-/*
-multi-line comment
-*/
+// comment
+/* multi-line comment */
 
-//variables
+primitives: number, string, boolean, undefined, null
+falsy values: undefined, null, 0, '', NaN
+typeof(var);
+isNaN(input);
+
+== : equality
+=== : equality & type coersion
+
+// Variables
 var firstName, lastName;
-var firstName = "Homer", lastName = "Simpson";
-// empty variables = 'undefined' value
-// no value = null
-typeof(firstName);
+firstName = "Homer";
+// unassigned variable == 'undefined' value/datatype
+// absence of value == 'null' value/obj datatype
 
-//strings
-var concat = "one" + "two";
-concat.length;
-concat.charAt(0);
-concat.indexOf("one");
-concat.toUpperCase();
-concat.substring(0,5);
+// Strings
+var str = "id: " + "%id%";
+str.length;
+str.charAt(0);
+str.toUpperCase();
+str.substring(0,5);
+str.replace('%id%', id);
+parseInt(str)
+parseFloat(str)
 
-//functions
-function displayMessage(firstName) {
-    alert("Hello " + firstName + ", hope you like JavaScript functions!")
-	return "this is a return";
-}
-
-//if-else
-function analyzeColor(myColor) {
-	if (myColor == "Blue") {
-		alert("Just like the sky!");
-		}
-	else if (myColor == "Red") {
-		alert("Just like shiraz!");
-	}
-	else {
-		alert("Suit yourself then...");
-	}
-}
-
-//switch
-function analyzeColor2(myColor) {
-	switch (myColor)
-	{
-	case "Blue":
-		alert("Just like the sky!");
-		break
-	case "Red":
-		alert("Just like shiraz!");
-		break
-	default:
-		alert("Suit yourself then...");
-	}
-}
-
-//while-loop
-var myBankBalance = 0;
-while (myBankBalance <= 10) {
-	document.write("Right now, my bank balance is $" + myBankBalance + "<br />");
-	myBankBalance ++;
-}
-
-//for-loop
-for (myBankBalance = 0; myBankBalance <= 10; myBankBalance++) {
-document.write("My bank balance is $" + myBankBalance + "<br />");
-}
-
-//error handling
-function showBankBalance() {
-  try
-    {
-    alert("My bank balance is $" + myBankBalance);
-    }
-  catch(err)
-    {
-    alert("Sorry, an error has occurred.");
-    }
-}
-
-//array
+// Arrays
 var arr = new Array(3)
-var nums = []; //empty array
-arr[0] = "What are JavaScript arrays";
+arr = [1, 2, 3];
+arr[0] = "foo";
+arr.length();
+arr.indexof("hello");
+arr.slice(0, 5);
 arr.sort();
 arr.reverse();
-arr.concat(y,z); //where y and z are other arrays
-arr.slice(0,5);
-arr.push("world");
-arr.unshift("hello");
-arr.pop();
-arr.shift();
 
-//3x3 2-D array
-var arr2 = new Array(3)
-for (i=0; i < 3; i++)
-	arr2[i]=new Array(3)
+arr.push("world");    //add to end
+arr.unshift("hello"); //add to begin
+arr.pop();            // remove from end
+arr.shift();          // remove from begin
 
-//objects
-var obj = new Object();
-var person = {
-    name: "Joe",
+for (i = 0; i < arr.length; i++) { }
+for (e in arr) { }
+arr.forEach(function(currEle, idx, arr) {} );
+
+// If/else
+if (a > b) { }
+else { }
+
+// Switch
+switch (color)
+{
+	case "red":
+		break;
+	default:
+		break;
+}
+
+var age = 20
+switch(true) 
+{
+	case age < 13:
+		break;
+}
+
+// Error handling
+function foo() {
+	try {
+		bar();
+	} catch(e) {
+		alert("ERROR");
+	}
+}
+
+// Functions
+// Function declaration
+function foo(param1, param2) {
+	return param1 + param2;
+}
+
+// Function expression
+var foo = function(param1, param2) {
+	return param1 + param2;
+}
+
+// IIFE (Immediately Invoked Function Expression)
+// (used for data hiding/modularization)
+(function(param1, param2) {
+	return param1 + param2;
+})(1, 2); // () in beginning tricks the parser to thinking it's an expression (not decl)
+
+// Objects
+// Anonymous object
+var john = {
+    name: 'John',
     greet: function() {
-        return "My name is "+ this.name;
+        return "My name is " + this.name;
     }
 };
-person.name;
-person.greet();
-person.name = "Sunny";
-person.age = 22;
-delete person.age;
 
-var propName;
-for (propName in test) {
-    document.write(propName);
-} 
+john.name;
+john['name'];
+john.greet();
+john.name = "Sunny";
+john.age = 22;
+delete john.age;
 
-//output to html page
-document.write("JavaScript is not Java");
+// Function (obj) constructor
+var Person = function(name, age) {
+	this.name = name;
+	this.age = age;
+}
 
-//escape characters
-document.write("They call it an \"escape\" character");
+// Function prototype (inherited by all)
+Person.prototype.calcAge = function() {
+	console.log(2018 - this.age);
+}
+Person.prototype.lastName = 'Smith';
 
+var john = new Person('john', 20);
+john.calcAge();
+john.lastName;
+john.__proto__ === Person.prototype
+
+var personProto = {
+	calcAge: function() {
+		console.log(2018 - this.age);
+	}
+};
+
+var john = Object.create(personProto, {
+	name: { value: 'john' },
+	age: { value: '20' }
+});
+
+// Method borrowing
+john.presention.call(emily, 'foo', 'bar');
+john.presention.apply(emily, ['foo', 'bar']);
+john.presention.bind(emily, 'friendly'); // currying (preset arguments)
+
+// Console / dialog interactions
+console.log("Hello World");
+console.info(john);
+alert('Hey!');
+var input = prompt('Enter something:');
+var choice = confirm('ok?');
+
+// DOM manipulation
+
+document.querySelector('#id').textContent = 'content';
+document.getElementById('id').textContent = 'content';
+document.querySelector('.class').innerHTML = '<em>content</em>';
+document.querySelectorAll('field1, field2'); // select multiple DOM elements
+
+// add HTML
+document.querySelector('.class').insertAdjacentHTML('beforeend', html)
+
+// remove HTML
+ele.parentNode.removeChild(ele);
+
+document.getElementById('id').style.display = 'none';  // hide element
+ele.style.display = 'block'; // show element
+ele.src = 'dice.png'; // change image
+
+// add/remove/toggle CSS classes
+document.querySelector('.class').classList.remove('active')
+document.querySelector('.class').classList.add('active')
+document.querySelector('.class').classList.toggle('active')
+
+// Event listener
+document.querySelector('.class').addEventListener('click', function(event) { 
+	event.target; // event triggerer
+	event.keyCode;
+});
+
+//////////////////////////////// 
 //void
 //<a href="JavaScript:void(0);" ondblclick="alert('Well done!')">Double Click Me!</a>
 
@@ -129,15 +186,6 @@ document.write(document.cookie.split("=")[1])
 //delete cookie
 document.cookie = "myContents=cookie experiment; expires=Fri, 01 Jan 2000 12:00:00 UTC; path=/";
 
-	
-//inner html (change html values)
-function Msg1(){
-  document.getElementById('myText').innerHTML = 'Thanks!';
-}
-function Msg2(){
-  document.getElementById('myText').innerHTML = 'Try message 1 again...';
-}
-
 // Popup window
 function basicPopup(url) {
 	popupWindow = window.open(url,'popUpWindow','height=500,width=500,left=100,top=100',
@@ -148,8 +196,3 @@ function basicPopup(url) {
 function redirectTo(sUrl) {
 	window.location = sUrl
 }
-
-//dialog boxes
-alert('Hey!');
-confirm('Are you sure?');
-prompt('Please enter:', 'something');
