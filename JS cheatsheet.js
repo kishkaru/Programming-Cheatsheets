@@ -9,11 +9,20 @@ isNaN(input);
 == : equality
 === : equality & type coersion
 
-// Variables
+// Variables (function scoped)
 var firstName, lastName;
 firstName = "Homer";
 // unassigned variable == 'undefined' value/datatype
 // absence of value == 'null' value/obj datatype
+
+// Variables (block scoped)
+let firstName = 'john';
+const year = 1990;
+
+{
+	let a = 1;
+	const b = 2;
+}
 
 // Strings
 var str = "id: " + "%id%";
@@ -25,6 +34,12 @@ str.replace('%id%', id);
 parseInt(str)
 parseFloat(str)
 
+str.startsWith('str');
+str.includes('str');
+str.repeat(numT);
+
+console.log(`My name is ${name}.`);
+
 // Arrays
 var arr = new Array(3)
 arr = [1, 2, 3];
@@ -34,15 +49,31 @@ arr.indexof("hello");
 arr.slice(0, 5);
 arr.sort();
 arr.reverse();
+arr.findIndex(e => );
+arr.find(e => );
+arr = Array.from(list);
 
 arr.push("world");    //add to end
 arr.unshift("hello"); //add to begin
 arr.pop();            // remove from end
 arr.shift();          // remove from begin
 
-for (i = 0; i < arr.length; i++) { }
-for (e in arr) { }
+for (var i = 0; i < arr.length; i++) { }
+for (var e of arr) { }
 arr.forEach(function(currEle, idx, arr) {} );
+
+arr.map(function(currEle, idx, arr) {} );
+arr.map(e => e - 1);
+arr.map((e, i) => { return e + i; })
+
+// Map
+const map = new Map();
+map.set(k, v);
+map.size;
+map.has(k)
+map.delete(k)
+map.forEach((v, k) => {} );
+map.for(let [k, v] of map.entries()) { }
 
 // If/else
 if (a > b) { }
@@ -139,6 +170,31 @@ john.presention.call(emily, 'foo', 'bar');
 john.presention.apply(emily, ['foo', 'bar']);
 john.presention.bind(emily, 'friendly'); // currying (preset arguments)
 
+// Classses
+class SubClass extends Superclass {
+	constructor() { super(); }
+	methodName() { }
+	static method() { }
+}
+
+// Destructuring objects
+const [name, age] = ['john', 26];
+john = {
+	first: 'john',
+	last: 'smith'
+}
+const {first, last} = obj;
+const {first: var1, last: var2} = obj;
+
+// Spread op (splat)
+foo(...arr)
+[...arr, ...arr2]
+
+// Rest param
+function foo(...arr) { }
+foo(1,2,3,4);
+function foo(bar, ...arr) {}
+
 // Console / dialog interactions
 console.log("Hello World");
 console.info(john);
@@ -147,21 +203,20 @@ var input = prompt('Enter something:');
 var choice = confirm('ok?');
 
 // DOM manipulation
-
 document.querySelector('#id').textContent = 'content';
 document.getElementById('id').textContent = 'content';
 document.querySelector('.class').innerHTML = '<em>content</em>';
 document.querySelectorAll('field1, field2'); // select multiple DOM elements
 
-// add HTML
+// add/remove HTML
 document.querySelector('.class').insertAdjacentHTML('beforeend', html)
-
-// remove HTML
 ele.parentNode.removeChild(ele);
 
-document.getElementById('id').style.display = 'none';  // hide element
-ele.style.display = 'block'; // show element
+// hide/show/change ele
+document.getElementById('id').style.display = 'none';
+ele.style.display = 'block';
 ele.src = 'dice.png'; // change image
+ele.className = 'active'; // change class
 
 // add/remove/toggle CSS classes
 document.querySelector('.class').classList.remove('active')
