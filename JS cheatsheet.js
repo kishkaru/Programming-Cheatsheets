@@ -95,15 +95,6 @@ switch(true)
 		break;
 }
 
-// Error handling
-function foo() {
-	try {
-		bar();
-	} catch(e) {
-		alert("ERROR");
-	}
-}
-
 // Functions
 // Function declaration
 function foo(param1, param2) {
@@ -115,11 +106,60 @@ var foo = function(param1, param2) {
 	return param1 + param2;
 }
 
+// Spread op (splat)
+arr = [1,2];
+foo(...arr);
+[...arr, ...arr2]; //merge arrays
+
+// Rest param
+function foo(...arr) { }
+function foo(bar, ...arr) {}
+foo(1,2,3,4);
+
 // IIFE (Immediately Invoked Function Expression)
 // (used for data hiding/modularization)
 (function(param1, param2) {
 	return param1 + param2;
 })(1, 2); // () in beginning tricks the parser to thinking it's an expression (not decl)
+
+// Async function
+const fn = id => {
+	return new Promise( (resolve, reject) => {
+		setTimeout( (idx) => {
+			resolve([idx,1,2,3]);
+		}, 1500, id);
+	});
+};
+
+fn().then(arr => {
+	return arr[0];
+}).catch(error => {
+	console.log('err');
+});
+
+async function fn2() {
+  // blocks until resolved
+  const ids = await fn(1);
+  // returns another promise
+  return ids[0];
+}
+
+// Import/export modules
+export default 'foo bar baz'; //1
+export const add = (a,b) => a+b; //2
+
+import someVar from './views/searchView'; //1
+import { add as a, mult as b, ID} from './views/searchView'; //2
+import * as searchView from './views/searchView'; //2
+
+// Error handling
+function foo() {
+	try {
+		bar();
+	} catch(e) {
+		alert("ERROR");
+	}
+}
 
 // Objects
 // Anonymous object
@@ -186,15 +226,6 @@ john = {
 const {first, last} = obj;
 const {first: var1, last: var2} = obj;
 
-// Spread op (splat)
-foo(...arr)
-[...arr, ...arr2]
-
-// Rest param
-function foo(...arr) { }
-foo(1,2,3,4);
-function foo(bar, ...arr) {}
-
 // Console / dialog interactions
 console.log("Hello World");
 console.info(john);
@@ -224,10 +255,25 @@ document.querySelector('.class').classList.add('active')
 document.querySelector('.class').classList.toggle('active')
 
 // Event listener
-document.querySelector('.class').addEventListener('click', function(event) { 
+document.querySelector('.class').addEventListener('click', function(event) {
+  event.preventDefault(); // don't refresh page
 	event.target; // event triggerer
 	event.keyCode;
 });
+
+// HTTP API
+fetch('url')
+.then(result => {
+	return result.json();
+})
+.then(resultJson => {
+	console.log(resultJson);
+})
+.catch(error => {} );
+
+const proxy = 'https://cors-anywhere.herokuapp.com';
+import axios from 'axios';
+const resultJson = await axios('${proxy}/url')
 
 //////////////////////////////// 
 //void
