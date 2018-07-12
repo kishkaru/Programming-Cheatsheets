@@ -8,6 +8,7 @@ isNaN(input);
 
 == : equality
 === : equality & type coersion
+eval("4+5"); -> 9
 
 // Variables (function scoped)
 var firstName, lastName;
@@ -47,10 +48,12 @@ arr[0] = "foo";
 arr.length();
 arr.indexof("hello");
 arr.slice(0, 5);
+arr.splice(index, 1); // remove elems from arr
 arr.sort();
 arr.reverse();
 arr.findIndex(e => );
 arr.find(e => );
+arr.join(' ');
 arr = Array.from(list);
 
 arr.push("world");    //add to end
@@ -65,6 +68,9 @@ arr.forEach(function(currEle, idx, arr) {} );
 arr.map(function(currEle, idx, arr) {} );
 arr.map(e => e - 1);
 arr.map((e, i) => { return e + i; })
+arr.reduce((acc, cur) => {
+	return acc++;
+}, start);
 
 // Map
 const map = new Map();
@@ -233,33 +239,47 @@ alert('Hey!');
 var input = prompt('Enter something:');
 var choice = confirm('ok?');
 
+// DOM selectors
+document.querySelector('#id')
+document.querySelector('.btn link') // "link" child of "btn" parent
+document.querySelector('a[href*="${id}"'); // sel via CSS element
+document.querySelectorAll('field1, field2') // sel multiple DOM elements
+document.getElementById('id')
+
 // DOM manipulation
-document.querySelector('#id').textContent = 'content';
-document.getElementById('id').textContent = 'content';
-document.querySelector('.class').innerHTML = '<em>content</em>';
-document.querySelectorAll('field1, field2'); // select multiple DOM elements
-
-// add/remove HTML
-document.querySelector('.class').insertAdjacentHTML('beforeend', html)
-ele.parentNode.removeChild(ele);
-
-// hide/show/change ele
-document.getElementById('id').style.display = 'none';
-ele.style.display = 'block';
+ele.textContent = 'content';
+ele.innerHTML = '<em>content</em>';
+ele.setAttribute('href', ''); // set attr
 ele.src = 'dice.png'; // change image
+ele.dataset.goto
+
+// add/remove CSS classes
+ele.classList.add('active')
+ele.classList.remove('active')
+ele.classList.toggle('active')
 ele.className = 'active'; // change class
 
-// add/remove/toggle CSS classes
-document.querySelector('.class').classList.remove('active')
-document.querySelector('.class').classList.add('active')
-document.querySelector('.class').classList.toggle('active')
+// hide/show elem
+ele.style.display = 'none';
+ele.style.display = 'block';
+
+// add/remove HTML
+ele.insertAdjacentHTML('beforeend', html)
+ele.parentNode.removeChild(ele); // del curr elem
+ele.innerHTML = ''; // del all child elems
 
 // Event listener
 document.querySelector('.class').addEventListener('click', function(event) {
   event.preventDefault(); // don't refresh page
-	event.target; // event triggerer
-	event.keyCode;
+  event.keyCode;
+  
+  event.target; // event triggerer
+  event.target.closest('.btn'); // event is a child of ele
+  event.target.matches('.btn *'); // event is any child of ele
 });
+
+window.addEventListener('hashChange', fn)
+window.location.hash
 
 // HTTP API
 fetch('url')
@@ -275,25 +295,29 @@ const proxy = 'https://cors-anywhere.herokuapp.com';
 import axios from 'axios';
 const resultJson = await axios('${proxy}/url')
 
-//////////////////////////////// 
-//void
-//<a href="JavaScript:void(0);" ondblclick="alert('Well done!')">Double Click Me!</a>
-
-//create cookie
-document.cookie = "myContents=cookie experiment; expires=Mon, 18 Feb 2013 12:00:00 UTC; path=/";
-//print cookie
-document.write(document.cookie);
-document.write(document.cookie.split("=")[1])
-//delete cookie
-document.cookie = "myContents=cookie experiment; expires=Fri, 01 Jan 2000 12:00:00 UTC; path=/";
+// Redirect
+function redirectTo(sUrl) {
+	window.location = sUrl
+}
 
 // Popup window
 function basicPopup(url) {
 	popupWindow = window.open(url,'popUpWindow','height=500,width=500,left=100,top=100',
-	resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no, status=yes);
+	resizable='yes',scrollbars='yes',toolbar='yes',menubar='no',location='no',directories='no', status='yes');
 }
 
-//redirect
-function redirectTo(sUrl) {
-	window.location = sUrl
-}
+// Persist data
+// store inside browser (avail to client only)
+localStorage.setItem('id', 'foo');
+localStorage.getItem('id');
+localStorage.removeItem('id');
+
+JSON.stringify(obj);
+JSON.parse(str);
+
+// Cookie: sent to server on every HTTP request
+document.cookie = "myContents=cookie experiment; expires=Mon, 18 Feb 2013 12:00:00 UTC; path=/";
+// print cookie
+document.write(document.cookie.split("=")[1])
+// delete cookie
+document.cookie = "myContents=cookie experiment; expires=Fri, 01 Jan 2000 12:00:00 UTC; path=/";
