@@ -269,7 +269,7 @@ ele.parentNode.removeChild(ele); // del curr elem
 ele.innerHTML = ''; // del all child elems
 
 // Event listener
-document.querySelector('.class').addEventListener('click', function(event) {
+ele.addEventListener('click', function(event) {
   event.preventDefault(); // don't refresh page
   event.keyCode;
   
