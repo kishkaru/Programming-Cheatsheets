@@ -2,7 +2,8 @@
 <html>
 	<head>
 		<title>HTML Cheatsheet</title>
-		<!-- Base url -->
+		
+    <!-- Base url -->
 		<base url="kishmaster.us.to"> 
 
 		<meta name="description" content="Contains info about meta tags" />
@@ -10,11 +11,16 @@
 		<meta name="robots" content="nofollow" />
 		<meta name="revised" content="kishan, 7/17/2014">
 		<meta http-equiv="author" content="kishan" />
+    
+    <link rel="stylesheet" type="text/css" href="external.css" >
 	</head>
 
 	<body>
+    <div class="spancontainer" id="spanouter">
+			<span>some text here</span>
+		</div>
+    
 		<h1>A Heading</h1>
-		<br />
 
 		<p>
 			<b>BOLD</b> 
@@ -22,13 +28,14 @@
 			<sup>superscript</sup>
 			<sub>subscript</sub>
 
+      <br />  <!-- line break -->
 			<hr />  <!-- horizontal line -->
 			<blockquote>long quotes</blockquote>
 			<q>inline quote</q>
 			<address>here is an address</address>
 		</p>
 
-		<ul> <!-- bullet points -->
+		<ul> <!-- unordered list -->
 			<li>First element</li>
 			<li>Second element</li>
 		</ul>
@@ -37,27 +44,23 @@
 			<li>Fecond ordered element</li>
 		</ol>
 
-		<br />
 		<!-- links -->
 		<a href="/">links</a>
 		<a href="#target">Jump</a> <!-- anchor -->
 		<a href="mailto:someone@something.com">email</a> 
-		<a href="http://google.com" target="_blank">new window</a>
+		<a href="http://google.com" target="_blank">new tab</a>
 
-		<br />
 		<!-- image -->
-		<img src="/pix/smile.gif" alt="Smile" title="a simile" width="200" height="100" /><br />
+		<img src="/pix/smile.gif" alt="Smile" title="a simile" width="200" height="100" />
 		<!-- clicky img -->
 		<a href="http://www.travel-explorer.com/"><img src="200x150.jpg"></a> 
 
 		<figure>
 			<img src="/pix/smile.gif" alt="Smile" />
-			<br />
 			<figcaption>this is the caption</figcaption>
 		</figure>
 
 		<!-- tables -->
-		<br />
 		<table>
 			<thead>
 				<tr>
@@ -76,7 +79,7 @@
 		</table>
 
 		<form action="http://example.com/subscribe.php" method="get">
-		
+      
 			<!-- text box -->
 			<p>username: <input type="text" name="username" /></p>
 			<p>password: <input type="password" name="pass" /></p>
@@ -86,31 +89,26 @@
 			<input type="radio" name="genre" value="pop" /> Pop
 			<input type="radio" name="genre" value="rock" checked /> Rock
 			
-			<br />
 			<!-- check box -->
 			<input type="checkbox" name="genre" value="jazz" /> Jazz
 			<input type="checkbox" name="genre" value="classical" checked /> Classical
 			
-			<br />
 			<!-- drop-down box -->
 			<select name="devices">
 				<option value="ipod">iPod</option>
 				<option value="radio" selected>Radio</option>
 			</select>
 			
-			<br />
 			<!-- multi drop-down box -->
 			<select name="instruments" multiple>
 				<option value="guitar">Guitar</option>
 				<option value="drums" selected>Drums</option>
 			</select>
-			
-			<br />
+
 			<!-- file upload -->
 			<input type="file" name="user-song" />
 			<input type="submit" name="subscribe" value="Subscribe" />
 			
-			<br />
 			<!-- button -->
 			<button>A Button? </button>
 			<input type="hidden" name="page" value="root" />
@@ -135,11 +133,6 @@
 		
 		</form>
 
-		<div id="header">
-			<span>some text here</span>
-		</div>
-		
-		<br />
 		<!-- inline frame -->
 		<iframe
 			width="500"
@@ -148,14 +141,16 @@
 			seamless>
 		</iframe>
 
-		<hr>
-		<!-- inline JS script -->
-		<script type="text/javascript"> 
+    <!-- inline JS script -->
+
+    <script type="text/javascript"> 
 			alert("I am a script. I ran first!")
 		</script>
-		<input type="button" value="Click me..." onclick="alert('Thanks, I feel better now!')">
 
-		<script type="text/javascript" src="external_scripts.js"></script> <!-- external JS file -->
+		<input type="button" value="Click me" onclick="alert('Thanks, I feel better now!')">
+
+    <!-- external JS file -->
+		<script type="text/javascript" src="external_scripts.js"></script> 
 
 		<noscript>
 			You need JavaScript enabled to view the content on this page.
