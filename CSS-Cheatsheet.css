@@ -1,0 +1,138 @@
+/* Clear out all browser's internal styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* basic CSS */
+/* child "p" of class "first"*/
+.first p {
+  color: green;
+}
+
+/* class "first" and class "link"*/
+.first, .link {
+    border: 1px dotted red; 
+  }
+
+/* "hover" attr of child "a" of id "second"*/
+#second a:hover {
+  font-size: 30px;
+}
+
+/* Separate all modules with border */
+.module {
+    border: 1px solid;
+    margin: 10px;
+}
+
+p#size {
+    font-size: 20px;
+}
+
+p#style {
+    font-style: italic;
+}
+
+p#weight {
+    font-weight: bold;
+}
+
+p#family {
+    font-family: georgia,garamond,serif;
+}
+
+p#variant {
+    font-variant:small-caps;
+}
+
+p#font {
+    font: bold 20px georgia;
+}
+
+p#color {
+    color: olive;
+}
+
+p#align {
+    text-align: right;
+}
+
+p#indent {
+    text-indent: 50px;
+}
+
+p#pre {
+    white-space: pre;
+}
+
+p#background {
+    background-color: yellow;
+}
+
+p#border {
+    border-top: 1px dashed blue;
+}
+
+p#margin {
+    border: 1px solid rgb(94, 167, 45);
+    margin: 20px;
+}
+
+p#margin2 {
+    border: 1px solid orange;
+    margin-left: 60px;
+}
+
+p#margin3 {
+    border: 1px solid orange;
+    margin: 5px 20px 20px 5px;
+}
+
+p#padding {
+    border: 1px solid rgb(247, 0, 255);
+    padding: 20px;
+}
+
+p#padding2 {
+    background-color: orange;
+    height: 200px;
+    width: 300px;
+}
+
+div#relative {
+    background-color: yellow;
+    position: relative;
+    left: 50px;
+    width: 90px;
+}
+
+div#absolute-parent {
+    position: relative;
+}
+
+div#absolute {
+    background-color:rgb(96, 153, 190);
+    position: absolute;
+    top: 50px;
+    left: 300px;
+}
+
+div#fixed {
+    background-color: red;
+    position: fixed;
+    top: 100px;
+    right: 60px;
+    width: 180px;
+}
+
+p#left-of-float {
+    margin-right: 50px;
+    float: left;
+}
+
+div#right-of-float {
+    background-color: cornsilk;
+    float: left;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="CSS-Cheatsheet.css" >
+  </head>
+
+  <body>
+    <!-- basic CSS -->
+    <div class="first">
+      This is using a class
+      <p>Class paragraph</p>
+    </div>
+
+    <div id="second">
+      This is using an ID
+      <p>ID paragraph</p>
+      <div class="link">
+        <a href="https://google.com">A class inside ID</a>
+      </div>
+    </div>
+
+    <!-- font -->
+    <div class="module">
+        <p id="size">This text is using a font size of 20 pixels.</p>
+        <p id="style">This text is in italics.</p>
+        <p id="weight">This text is bold.</p>
+        <p id="family">Georgia, garamond, or the default serif font </p>
+        <p id="variant">This Text Is Using Small Caps.</p>
+        <p id="font">The styles for this text has been specified with the 'font' shorthand property.</p>
+    </div>
+
+    <!-- text -->
+    <div class="module">
+      <p id="color">This CSS text color is olive</p>
+      <p id="align">This CSS text is aligned right</p>
+      <p id="indent">This text is indented by 50 pixels.</p>
+      <p id="pre">This text has a line 			break.</p>
+    </div>
+
+    <div class="module">
+      <!-- background -->
+      <p id="background">This text has a background color applied.</p>
+
+      <!-- border-->
+      <p id="border">
+        This text has a blue, dashed top border.
+      </p>
+    </div>
+
+    <div class="module">
+      <!-- margin -->
+      <p id="margin">
+        This text has a margin of 20 pixels on all four sides, with a green, solid border.
+      </p>
+      <p id="margin2">
+        This text has a left margin of 60 pixels, with an orange, solid border.
+      </p>
+      <div style="border:1px solid blue;width:150px;">
+        <p id="margin3">
+          This text has a different sized margin for each side (TOP RIGHT DOWN LEFT). It is nested within a div with a blue, solid border
+        </p>
+      </div>
+    </div>
+
+    <div class="module">
+      <!-- padding -->
+      <p id="padding">
+        This text has padding of 20 pixels on all four sides, with a pink, solid border.
+      </p>
+  
+      <p id="padding2">
+        This orange p has height and width applied.
+      </p>
+    </div>
+
+    <div class="module">
+      <!-- positioning -->
+      <div id="relative-parent"> <!-- parent must be relative -->
+        <p>Here is the normal flow of content.</p> 
+          <div id="relative"> <!-- relative from parent -->
+            This div has positioning (relatively).
+          </div>
+      </div>
+
+      <div id="absolute-parent"> <!-- parent must be relative -->
+        <div id="absolute"> <!-- absolute from parent -->
+          This div is positioned (absolutely) 50 pixels from the top and 300 pixels from the left of its 
+          containing block.
+        </div>
+      </div>
+
+      <div id="fixed"> <!-- fixed -->
+        This div is using a fixed position of 100 pixels from the top and 60 pixels from the left 
+      </div>
+    </div>
+
+    <div class="module">
+      <!-- float -->
+      <div>
+        <p id="left-of-float">Feel free to check out the links in the box that's floating to the right of this text.</p>
+        <div id="right-of-float">
+            <a href="http://www.html.am/">HTML</a><br>
+            <a href="http://www.htmlcodes.me/">Codes</a><br>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

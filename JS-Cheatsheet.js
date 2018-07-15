@@ -1,14 +1,14 @@
 // comment
 /* multi-line comment */
 
-primitives: number, string, boolean, undefined, null
-falsy values: undefined, null, 0, '', NaN
-typeof(var);
-isNaN(input);
+// primitives: number, string, boolean, undefined, null
+// falsy values: undefined, null, 0, '', NaN
+// typeof(var);
+// isNaN(input);
 
-== : equality
-=== : equality & type coersion
-eval("4+5"); -> 9
+// == : equality
+// === : equality & type coersion
+// eval("4+5"); -> 9
 
 // Variables (function scoped)
 var firstName, lastName;
