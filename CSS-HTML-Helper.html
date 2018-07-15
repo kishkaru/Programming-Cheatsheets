@@ -12,11 +12,10 @@
     </div>
 
     <div id="second">
-      This is using an ID
-      <p>ID paragraph</p>
-      <div class="link">
+      <span class="link">
+          This is using an ID, inside of a span. <br>
         <a href="https://google.com">A class inside ID</a>
-      </div>
+      </span>
     </div>
 
     <!-- font -->
@@ -25,21 +24,29 @@
         <p id="style">This text is in italics.</p>
         <p id="weight">This text is bold.</p>
         <p id="family">Georgia, garamond, or the default serif font </p>
-        <p id="variant">This Text Is Using Small Caps.</p>
         <p id="font">The styles for this text has been specified with the 'font' shorthand property.</p>
     </div>
 
     <!-- text -->
     <div class="module">
+      <p id="variant">This text is using small caps.</p>
+      <p id="uppercase">This text is uppercase.</p>
+      <p id="letter-spacing">This text has extra letter-spacing.</p>
+      <p id="word-spacing">This text has extra word-spacing.</p>
       <p id="color">This CSS text color is olive</p>
       <p id="align">This CSS text is aligned right</p>
       <p id="indent">This text is indented by 50 pixels.</p>
       <p id="pre">This text has a line 			break.</p>
+      <a id="link" href="#">This link has no decorations, and is an inline-block (with padding). It also transitions on hover.</a>
     </div>
 
     <div class="module">
       <!-- background -->
       <p id="background">This text has a background color applied.</p>
+
+      <div id="background2"></div>
+
+      <img id="image" src="img/example.jpg" alt="this is an image"></img>
 
       <!-- border-->
       <p id="border">
@@ -52,14 +59,22 @@
       <p id="margin">
         This text has a margin of 20 pixels on all four sides, with a green, solid border.
       </p>
+
       <p id="margin2">
         This text has a left margin of 60 pixels, with an orange, solid border.
       </p>
+
       <div style="border:1px solid blue;width:150px;">
         <p id="margin3">
           This text has a different sized margin for each side (TOP RIGHT DOWN LEFT). It is nested within a div with a blue, solid border
         </p>
       </div>
+
+      <div style="border:1px solid blue;width:150px;">
+          <p id="margin4">
+            This text has a different sized margin for each pair side (TOP/BOTTOM LEFT/RIGHT). It is nested within a div with a blue, solid border
+          </p>
+        </div>
     </div>
 
     <div class="module">
@@ -67,10 +82,14 @@
       <p id="padding">
         This text has padding of 20 pixels on all four sides, with a pink, solid border.
       </p>
-  
+
       <p id="padding2">
         This orange p has height and width applied.
       </p>
+
+      <p id="padding3">
+          This yellow p has a max width applied.
+        </p>
     </div>
 
     <div class="module">
@@ -84,8 +103,7 @@
 
       <div id="absolute-parent"> <!-- parent must be relative -->
         <div id="absolute"> <!-- absolute from parent -->
-          This div is positioned (absolutely) 50 pixels from the top and 300 pixels from the left of its 
-          containing block.
+          This div is positioned (absolutely) 50 pixels from the top and 500 pixels from the left of its containing block. Then it is translated 50% of its width back to the left.
         </div>
       </div>
 

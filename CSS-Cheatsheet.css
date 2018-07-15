@@ -1,3 +1,7 @@
+/* ------------------------------------- */
+/* BASIC SETUP */
+/* ------------------------------------- */
+
 /* Clear out all browser's internal styling */
 * {
     margin: 0;
@@ -5,20 +9,16 @@
     box-sizing: border-box;
 }
 
-/* basic CSS */
-/* child "p" of class "first"*/
-.first p {
-  color: green;
+.clearfix {
+    zoom: 1;
 }
 
-/* class "first" and class "link"*/
-.first, .link {
-    border: 1px dotted red; 
-  }
-
-/* "hover" attr of child "a" of id "second"*/
-#second a:hover {
-  font-size: 30px;
+.clearfix::after {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
 }
 
 /* Separate all modules with border */
@@ -26,6 +26,34 @@
     border: 1px solid;
     margin: 10px;
 }
+
+/* Basic CSS */
+/* "p" elems of class "first"*/
+.first p {
+  color: green;
+}
+
+/* p:last-of-type {
+    padding-bottom: 30px;
+} */
+
+.first:first-child {
+    color: rgb(212, 100, 170);
+}
+
+/* Id "second" and class "link"*/
+#second, .link {
+    border: 1px dotted red; 
+  }
+
+.link::after {
+    display: block;
+    content: "This is placed by CSS";
+}
+
+/* ------------------------------------- */
+/* CSS EXAMPLES */
+/* ------------------------------------- */
 
 p#size {
     font-size: 20px;
@@ -40,15 +68,28 @@ p#weight {
 }
 
 p#family {
-    font-family: georgia,garamond,serif;
-}
-
-p#variant {
-    font-variant:small-caps;
+    text-rendering: optimizeLegibility;
+    font-family: 'georgia', 'garamond', serif;
 }
 
 p#font {
     font: bold 20px georgia;
+}
+
+p#variant {
+    font-variant: small-caps
+}
+
+p#uppercase {
+    text-transform: uppercase;
+}
+
+p#letter-spacing {
+    letter-spacing: 2px;
+}
+
+p#word-spacing {
+    word-spacing: 2px;
 }
 
 p#color {
@@ -67,8 +108,31 @@ p#pre {
     white-space: pre;
 }
 
+a#link {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px;
+    transition: font-size 0.2s;
+}
+
+a#link:hover {
+    font-size: 30px;
+  }
+
 p#background {
     background-color: yellow;
+}
+
+div#background2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgb(0, 0, 0)), url(img/example.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+}
+
+img#image {
+    opacity: 0.7;
+    transform: scale(1.15);
 }
 
 p#border {
@@ -90,6 +154,11 @@ p#margin3 {
     margin: 5px 20px 20px 5px;
 }
 
+p#margin4 {
+    border: 1px solid orange;
+    margin: 5px 20px;
+}
+
 p#padding {
     border: 1px solid rgb(247, 0, 255);
     padding: 20px;
@@ -99,6 +168,11 @@ p#padding2 {
     background-color: orange;
     height: 200px;
     width: 300px;
+}
+
+p#padding3 {
+    background-color: rgb(238, 234, 31);
+    max-width: 1000px;
 }
 
 div#relative {
@@ -116,7 +190,8 @@ div#absolute {
     background-color:rgb(96, 153, 190);
     position: absolute;
     top: 50px;
-    left: 300px;
+    left: 500px;
+    transform: translate(-50%, 0%);
 }
 
 div#fixed {
