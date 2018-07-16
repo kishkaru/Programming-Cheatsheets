@@ -55,6 +55,11 @@
     border: 1px dotted red; 
 }
 
+/* elem with both class "link" and class "spanning" */
+.link.spanning {
+    color: rgb(184, 31, 223)
+}
+
 /* all "a" elem with attr "href" */
 a[href="https://google.com"] {
     text-decoration: none;
@@ -217,6 +222,7 @@ div#fixed {
     right: 60px;
     width: 180px;
     box-shadow: 0 5px 5px rgb(143, 143, 143);
+    z-index: 9999;
 }
 
 p#left-of-float {
