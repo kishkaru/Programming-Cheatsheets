@@ -9,6 +9,10 @@
     box-sizing: border-box;
 }
 
+*:focus {
+    outline: none;
+}
+
 .clearfix {
     zoom: 1;
 }
@@ -27,25 +31,36 @@
     margin: 10px;
 }
 
-/* Basic CSS */
-/* "p" elems of class "first"*/
+/* ------------------------------------- */
+/* CSS SELECTORS */
+/* ------------------------------------- */
+
+/* all "p" elems of class "first"*/
 .first p {
   color: green;
 }
 
+/* last of all "p" elems in a section*/
 /* p:last-of-type {
     padding-bottom: 30px;
 } */
 
+/* immediate first child of class "first"*/
 .first:first-child {
     color: rgb(212, 100, 170);
 }
 
-/* Id "second" and class "link"*/
+/* id "second" and class "link"*/
 #second, .link {
     border: 1px dotted red; 
-  }
+}
 
+/* all "a" elem with attr "href" */
+a[href="https://google.com"] {
+    text-decoration: none;
+}
+
+/* after the closing of "link" class */
 .link::after {
     display: block;
     content: "This is placed by CSS";
@@ -127,6 +142,7 @@ div#background2 {
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgb(0, 0, 0)), url(img/example.jpg);
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     height: 50vh;
 }
 
@@ -200,6 +216,7 @@ div#fixed {
     top: 100px;
     right: 60px;
     width: 180px;
+    box-shadow: 0 5px 5px rgb(143, 143, 143);
 }
 
 p#left-of-float {

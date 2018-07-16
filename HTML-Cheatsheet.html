@@ -25,6 +25,7 @@
       <nav></nav>
     </header>
     
+    <!-- organize page into logical sections -->
     <section></section>
 
     <footer>
@@ -91,11 +92,11 @@
       </tbody>
     </table>
 
-    <form action="http://example.com/subscribe.php" method="get">
+    <form action="http://example.com/subscribe.php" method="post">
       <!-- text box -->
-      <p>username: <input type="text" name="username"></p>
-      <p>password: <input type="password" name="pass"></p>
-      <p>comments? <textarea name=comments"></textarea></p>
+      <p>username: <input type="text" name="username" placeholder="Your name here"></p>
+      <p>password: <input type="password" name="password"></p>
+      <p>comments? <textarea name="comments"></textarea></p>
 
       <!-- radio box -->
       <input type="radio" name="genre" value="pop"> Pop
@@ -119,28 +120,28 @@
 
       <!-- file upload -->
       <input type="file" name="user-song">
-      <input type="submit" name="subscribe" value="Subscribe">
+      <input type="submit" name="subscribe" value="Subscribe!">
 
       <!-- button -->
-      <button>A Button? </button>
+      <button>A Button?</button>
       <input type="hidden" name="page" value="root">
 
       <!-- grouped fieldset -->
       <fieldset>
         <legend>Contact details</legend>
 
-        <label for="email">Email: <br>
-        <input type="email" name="email" required><br>
+        <label for="email-id">Email:</label>
+        <input type="email" name="email" id="email-id" required><br>
 
-        <label for="url">Website: <br>
+        <label>Website:</label>
         <input type"url" name="website" required><br>
 
-        <label for="date">Date: <br>
+        <label>Date:</label>
         <input type="date" name="depart"><br>
 
-        <label for="search">Search: <br>
+        <label>Search:</label>
         <input type="search" name="search">
-        <input type="submit" value="Search">
+        <input type="submit" value="Search now">
       </fieldset>
     </form>
 
