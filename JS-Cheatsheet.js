@@ -1,7 +1,7 @@
 // comment
 /* multi-line comment */
 
-// primitives: number, string, boolean, undefined, null
+// primitives: number, string, boolean, undefined, null, symbol
 // falsy values: undefined, null, 0, '', NaN
 // typeof(var);
 // isNaN(input);
@@ -16,22 +16,23 @@ firstName = "Homer";
 // unassigned variable == 'undefined' value/datatype
 // absence of value == 'null' value/obj datatype
 
-// Variables (block scoped)
-let firstName = 'john';
+// Variables (block scoped, can't use before assigned)
+let firstName = 'john'; //replaces var
 const year = 1990;
 
+let a = 1;
 {
-	let a = 1;
-	const b = 2;
+	const a = 2; //OK: block scoped
 }
 
 // Strings
-var str = "id: " + "%id%";
+var str = "a " + "b";
 str.length;
 str.charAt(0);
 str.toUpperCase();
 str.substring(0,5);
-str.replace('%id%', id);
+str.replace('a', 'foo');
+str.split(" ");
 parseInt(str)
 parseFloat(str)
 
@@ -63,10 +64,12 @@ arr.shift();          // remove from begin
 
 for (var i = 0; i < arr.length; i++) { }
 for (var e of arr) { }
-arr.forEach(function(currEle, idx, arr) {} );
+arr.forEach(function(currEle, idx, arr) { } );
+arr.forEach(e => { })
+arr.filter(e => e.length > 2);
 
 arr.map(function(currEle, idx, arr) {} );
-arr.map(e => e - 1);
+arr.map(e => { });
 arr.map((e, i) => { return e + i; })
 arr.reduce((acc, cur) => {
 	return acc++;
@@ -75,11 +78,23 @@ arr.reduce((acc, cur) => {
 // Map
 const map = new Map();
 map.set(k, v);
+map.get(k);
+map.has(k);
+map.delete(k);
 map.size;
-map.has(k)
-map.delete(k)
-map.forEach((v, k) => {} );
-map.for(let [k, v] of map.entries()) { }
+for(let [k, v] of map) { };
+map.forEach((v, k) => { } );
+
+// Set
+let set = new Set([1,2,3]);
+set.add(e);
+set.has(e);
+set.delete(e):
+set.size;
+set.clear();
+
+set.forEach(e => {});
+
 
 // If/else
 if (a > b) { }
@@ -102,31 +117,35 @@ switch(true)
 }
 
 // Functions
-// Function declaration
+// Is an object, with invocable code
+
+// Function statement (doesn't return anything)
 function foo(param1, param2) {
 	return param1 + param2;
 }
 
-// Function expression
+// Function expression (returns created fn obj)
 var foo = function(param1, param2) {
 	return param1 + param2;
 }
+var foo = (param1, param2) => param1 + param2;
 
-// Spread op (splat)
+// Spread op, expand array (splat)
 arr = [1,2];
 foo(...arr);
 [...arr, ...arr2]; //merge arrays
 
-// Rest param
-function foo(...arr) { }
-function foo(bar, ...arr) {}
+// Rest param (accept unlimited extra args)
+function foo(...arr) { } // arr is an array
+function foo(bar, ...arr) { }
 foo(1,2,3,4);
 
 // IIFE (Immediately Invoked Function Expression)
-// (used for data hiding/modularization)
+// (used for data hiding (var safety) /modularization)
+// () before FUNCTION keyword tricks parser into thinking it's an expression (not statement)
 (function(param1, param2) {
 	return param1 + param2;
-})(1, 2); // () in beginning tricks the parser to thinking it's an expression (not decl)
+})(1, 2); // () in the end executes it
 
 // Async function
 const fn = id => {
@@ -168,7 +187,7 @@ function foo() {
 }
 
 // Objects
-// Anonymous object
+// Object literal (anonymous)
 var john = {
     name: 'John',
     greet: function() {
@@ -184,12 +203,17 @@ john.age = 22;
 delete john.age;
 
 // Function (obj) constructor
+// returns fn that constructs obj
 var Person = function(name, age) {
 	this.name = name;
 	this.age = age;
 }
+// `new` creates empty obj, Person fn fills it in
+var jane = new Person('jane', 25);
+jane instanceof Person
 
-// Function prototype (inherited by all)
+// Function prototype (defined once, inherited by all objs)
+// `prototype` property of a function, only used after `new` keyword
 Person.prototype.calcAge = function() {
 	console.log(2018 - this.age);
 }
@@ -199,6 +223,7 @@ var john = new Person('john', 20);
 john.calcAge();
 john.lastName;
 john.__proto__ === Person.prototype
+john.hasOwnProperty('age');
 
 var personProto = {
 	calcAge: function() {
@@ -216,7 +241,7 @@ john.presention.call(emily, 'foo', 'bar');
 john.presention.apply(emily, ['foo', 'bar']);
 john.presention.bind(emily, 'friendly'); // currying (preset arguments)
 
-// Classses
+// Classses (ES6)
 class SubClass extends Superclass {
 	constructor() { super(); }
 	methodName() { }
@@ -312,6 +337,7 @@ localStorage.setItem('id', 'foo');
 localStorage.getItem('id');
 localStorage.removeItem('id');
 
+// Convert to/from JSON
 JSON.stringify(obj);
 JSON.parse(str);
 
