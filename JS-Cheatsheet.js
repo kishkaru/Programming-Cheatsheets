@@ -8,7 +8,7 @@
 
 // == : equality
 // === : equality & type coersion
-// eval("4+5"); -> 9
+eval("4+5"); -> 9
 
 // Variables (function scoped)
 var firstName, lastName;
@@ -130,16 +130,6 @@ var foo = function(param1, param2) {
 }
 var foo = (param1, param2) => param1 + param2;
 
-// Spread op, expand array (splat)
-arr = [1,2];
-foo(...arr);
-[...arr, ...arr2]; //merge arrays
-
-// Rest param (accept unlimited extra args)
-function foo(...arr) { } // arr is an array
-function foo(bar, ...arr) { }
-foo(1,2,3,4);
-
 // IIFE (Immediately Invoked Function Expression)
 // (used for data hiding (var safety) /modularization)
 // () before FUNCTION keyword tricks parser into thinking it's an expression (not statement)
@@ -168,6 +158,19 @@ async function fn2() {
   // returns another promise
   return ids[0];
 }
+
+// Spread op, expand array (splat)
+arr = [1,2];
+foo(...arr); // foo(1,2)
+[...arr, ...arr2]; //merge arrays
+
+// Rest param (accept unlimited extra args)
+function foo(...arr) { } // arr turns into an array
+function foo(bar, ...arr) { }
+foo(1,2,3,4);
+
+// Create new copy of obj
+const secondPerson = { ...Person };
 
 // Import/export modules
 export default 'foo bar baz'; //1
@@ -243,9 +246,18 @@ john.presention.bind(emily, 'friendly'); // currying (preset arguments)
 
 // Classses (ES6)
 class SubClass extends Superclass {
-	constructor() { super(); }
+	constructor() { 
+		super();
+    this.property = 'value';
+	}
 	methodName() { }
 	static method() { }
+}
+
+// Classes (ES7)
+class SomeClass {
+	property = 'value';
+  methodName = () => { }
 }
 
 // Destructuring objects
