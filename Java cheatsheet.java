@@ -22,7 +22,8 @@ Collections.max(l, Comparator)
 Collections.swap(l, i1, i2)
 Collections.frequency(l, e)
 l.stream().distinct().count()
-l.toArray(new Object[l.size()]) [convert to Obj[])
+l.toArray(new Object[l.size()]) //convert to Obj[]
+l.toArray(String[]::new) //convert to Obj[] (jdk11)
 String.join("", l)
 
 l.add(e)
