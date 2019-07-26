@@ -65,7 +65,7 @@ map.get(k)
 map.keySet()
 map.values()
 map.remove(k)
-map.replace(k, newval)
+map.replace(k, newval) //put if key already exists
 
 for(Map.Entry e : map.entrySet()) { }
 map.forEach((key, val) -> { })
