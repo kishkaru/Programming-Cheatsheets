@@ -177,15 +177,29 @@ numbers.stream()
 
 THREADS
 ======
-new Thread() {
+// thread subclassing
+Thread t = new Thread("ThreadName") {
 	public void run() {
 		sout();
 	}
-}.start()
+}
 
-Thread thread = new Thread(() -> sout());
-thread.start();
-thread.join();
+// runnable interface
+Runnable r = new Runnable() {
+  public void run() {
+    sout();
+  }
+}
+Thread t = new Thread(r, "ThreadName");
+t = new Thread(() -> sout());
+
+t.getName();
+t.start();
+t.join();
+
+Thread.currentThread();
+Thread.sleep(ms);
+
 
 LOCKS
 ======
