@@ -110,7 +110,12 @@ GENERICS
 public class Generic<T extends ArrayList & List> {
   public <U> void test(U u) { }
   public <T extends Comparable<T>> int countGrt(T[] arr, T elem) { }
-  public void print(Collection<?> c) { }
+  public void print(Collection<?> c) { } // collection of objects or subclass
+  
+  // instance or subclass of A. Cannot insert into list
+  public void process(List<? extends A> list) { }
+  // instance or superclass of A. Cannot read directly from list (must cast)
+  public void process(List<? super A> list) { }
 }
 
 REGEX
