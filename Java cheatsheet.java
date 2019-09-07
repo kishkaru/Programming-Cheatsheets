@@ -200,15 +200,20 @@ t.join();
 Thread.currentThread();
 Thread.sleep(ms);
 
-
 LOCKS
 ======
 Lock lock = new ReentrantLock();
 lock.lock();
 lock.unlock();
 
-public synchronized void increment() { }
-synchronized(this) { }
+// guarentees visibility of writes to other threads
+// all writes to variable will be written to main memory immediately
+// all reads of variable will be read from main memory
+volatile int counter = 0;
+
+public synchronized void add(int value) { }
+synchronized(this) { } // for instance method
+synchronized(MyClass.class) { } // for static method
 
 TESTING
 =======
