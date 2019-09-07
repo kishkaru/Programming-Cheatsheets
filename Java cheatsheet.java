@@ -254,7 +254,7 @@ HttpRequest postRequest = HttpRequest.newBuilder()
   .build();
 
 // sync
-HttpResponse<String> response = httpClient.send(getRequest, BodyHandlers.ofString());
+HttpResponse<String> response = client.send(getRequest, BodyHandlers.ofString());
 response.statusCode();
 response.headers();
 response.body();
@@ -262,3 +262,12 @@ response.body();
 // async
 CompletableFuture<HttpResponse<String>> future = client.sendAsync(postRequest, BodyHandlers.ofString());
 future.thenAccept(response -> { });
+
+JSON
+=====
+Gson gson = new Gson();
+JsonObject obj = gson.fromJson(jsonString, JsonObject.class);
+obj.get("f1").getAsString();
+obj.getAsJsonObject("f2");
+
+String jsonString = gson.toJson(obj);
