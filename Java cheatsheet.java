@@ -139,7 +139,7 @@ while (m.find()) {
 FUNCTIONS
 =========
 // in: Obj
-Consumer<String> c1 = s -> s.toUpper();
+Consumer<String> c1 = (s) -> s.toUpper();
 c1.accept("foo");
 
 // out: Obj
@@ -152,8 +152,10 @@ boolean b = cond.test(emp);
 
 // in: Obj, out: Obj
 Function<Employee, String> getLast = (Employee emp) -> {
-	return employee.lastName;
+	return employee.lastName();
 }
+// via method reference
+Function<Employee, String> getLast = Employee::lastName;
 String last = getLast.apply(emp);
 Function chainedFunction = getLast.andThen(upperCase);
 
@@ -199,6 +201,12 @@ t.join();
 
 Thread.currentThread();
 Thread.sleep(ms);
+
+// executor service
+ExecutorService es = Executors.newSingleThreadExecutor();
+Future future = es.submit( () -> "hello");
+future.get(5, TimeUnit.SECONDS);
+es.shutdown();
 
 LOCKS
 ======
