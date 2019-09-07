@@ -239,3 +239,26 @@ public static void beforeClass() { // runs before test suite }
 
 @Ignore("not ready yet")
 @Test(expected = IllegalArgumentException.class) {}
+
+NETWORKING
+==========
+HttpClient client = HttpClient.newHttpClient();
+
+HttpRequest getRequest = HttpRequest.newBuilder()
+  .uri(URI.create("http://www.example.com/"))
+  .build();
+HttpRequest postRequest = HttpRequest.newBuilder()
+  .uri(URI.create("https://postman-echo.com/post"))
+  .header("Content-Type", "application/json")
+  .POST(BodyPublishers.ofString("{ \"foo\": \"bar\"}"))
+  .build();
+
+// sync
+HttpResponse<String> response = httpClient.send(getRequest, BodyHandlers.ofString());
+response.statusCode();
+response.headers();
+response.body();
+
+// async
+CompletableFuture<HttpResponse<String>> future = client.sendAsync(postRequest, BodyHandlers.ofString());
+future.thenAccept(response -> { });
