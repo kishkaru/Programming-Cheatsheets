@@ -271,3 +271,47 @@ obj.get("f1").getAsString();
 obj.getAsJsonObject("f2");
 
 String jsonString = gson.toJson(obj);
+
+SQL
+=====
+String url = "jdbc:sqlite::memory:";
+String url = "jdbc:sqlite:/home/kishan/music.db";
+Connection connection = DriverManager.getConnection(url);
+
+Statement statement = connection.createStatement();
+statement.execute("CREATE TABLE table_name");
+ResultSet result = statement.getResultSet();
+
+// query
+ResultSet result = statement.executeQuery("SELECT * FROM table_name");
+while (result.next())
+  result.getInt("_id");
+  result.getString("name");
+  result.getInt(1); // column #
+
+// update
+String sql = "UPDATE table_name SET name = 'foo' WHERE name = 'bar'";
+int rowsAffected = statement.executeUpdate(sql);
+
+// batch
+statement.addBatch("DELETE FROM table_name WHERE var='val'");
+int[] result = statement.executeBatch();
+
+// prepared
+String sql = "SELECT * FROM table_name WHERE name = ? AND _id = ?";
+PreparedStatement select = connection.prepareStatement(sql);
+select.setString(1, "foo");
+select.setInt(2, 2);
+
+result.close();
+statement.close();
+connection.close();
+
+// atomic transaction
+try {
+  connection.setAutoCommit(false);
+  // execute statements
+  connection.commit();
+} catch(Exception e) {
+  connection.rollback();
+}
