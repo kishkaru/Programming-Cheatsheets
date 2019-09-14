@@ -209,8 +209,11 @@ Thread.sleep(ms);
 
 // executor service
 ExecutorService es = Executors.newSingleThreadExecutor();
-Future future = es.submit( () -> "hello");
-future.get(5, TimeUnit.SECONDS);
+es = Executors.newFixedThreadPool(MAX_THREADS);
+es.execute( () -> "hello");
+
+Future future = es.submit( () -> return "hello");
+Object o = future.get(5, TimeUnit.SECONDS);
 es.shutdown();
 
 LOCKS
