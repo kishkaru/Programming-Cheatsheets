@@ -128,7 +128,7 @@ else:
 
 LOOPS
 =======
-range(start, stop, step) # exclusive stop
+range(start, stop, step) # generates a stream [exclusive stop]
 list(range(3)) # [0,1,2]
 
 for e in iterable:
@@ -141,6 +141,28 @@ for (a,b) in zip(l1, l2):
 
 while cond:
 else: # execute when while is not true
+
+ERROR HANDLING
+==========
+import sys
+
+try:
+except SomeException as e:
+  print(sys.exc_info())
+  raise RuntimeError("fail") from e
+else:
+  # runs if not excepted
+finally:
+
+MODULES
+========
+import math
+from module import func
+from MainPackage.SubPackage import sub_script
+
+# Main Function, execute if python file called directly
+if __name__ == "__main__":
+  pass
 
 FUNCTIONS
 =========
@@ -177,19 +199,38 @@ def executing_func(some_func):
 
 executing_func(returning_func())
 
-@decorator # externally adds extra functionality to func
+# decorators, externally adds extra functionality to func
+from functools import wraps
+
+def add_wrapping(func):
+  @wraps(func)
+  def wrapped_function():
+    return "Wrapped: {}".format(func())
+  return wrapped_function
+
+@add_wrapping
 def func_needs_decorator():
-  pass
+  return "Needs dec"
 
-MODULES
-========
-import math
-from module import func
-from MainPackage.SubPackage import sub_script
+print(func_needs_decorator())
 
-# Main Function, execute if python file called directly
-if __name__ == "__main__":
-  pass
+GENERATORS (lazy eval)
+==========
+def generator_func(n):
+  for x in range(n)
+    yield x
+
+for i in generator_func(5):
+  print(i)
+
+next(generator_func(5))
+
+s_iter = iter(string)
+next(s_iter())
+
+# Generator expression, lazy eval
+g = (x for x in range(5))
+next(g)
 
 CLASSES
 ==========
@@ -227,33 +268,6 @@ instance.class_variable
 ClassName.class_variable
 del instance
 
-ERROR HANDLING
-==========
-try:
-except SomeException as e:
-  raise RuntimeError("fail") from e
-else:
-  # runs if not excepted
-finally:
-
-GENERATORS (lazy eval)
-==========
-def generator_func(n):
-  for x in range(n)
-    yield x
-
-for i in generator_func(5):
-  print(i)
-
-next(generator_func(5))
-
-s_iter = iter(string)
-next(s_iter())
-
-# Generator comprehension
-g = (x for x in range(5))
-next(g)
-
 REGEX
 ==========
 import re
@@ -266,16 +280,6 @@ m.group("var1") # access via group name
 m.groups() # all matching subgroups in a tuple
 
 re.sub(pattern, replacement, string)
-
-FILE IO
-==========
-file = open('filename.txt')
-file.close()
-file.read()
-file.seek(0)
-file.readlines() # list of lines
-with open('file.txt', mode='a+') as file:
-  file.write('foo')
 
 COLLECTIONS
 ============
@@ -324,3 +328,36 @@ heapq.heappop(l) # smallest ele
 
 import timeit
 timeit.timeit('function', number = iterations)
+
+MULTIPROCESSING
+===========
+from multiprocessing import Process, Pool
+
+# spawn 8 processes
+for i in range(8):
+  p = Process(target=func, args=(var1, var2))
+  p.start()
+  p.join()
+
+# pool with 8 processes
+with Pool(8) as p:
+  data = p.map(func, range(1000))
+print(data)
+
+FILE IO
+==========
+file = open('filename.txt')
+file.close()
+file.read()
+file.seek(0)
+file.readlines() # list of lines
+with open('file.txt', mode='a+') as file:
+  file.write('foo')
+
+LOGGING
+========
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logging.info("foo")
+
