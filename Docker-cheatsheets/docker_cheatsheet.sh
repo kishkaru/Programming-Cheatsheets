@@ -30,6 +30,7 @@ docker container kill container_id
 
 # remove container
 docker container rm container_id
+docker rm $(docker ps -a -q) # Remove all stopped containers
 docker container rm $(docker container ls -a -q)  # Remove all containers
 
 # create tag & push to hub
