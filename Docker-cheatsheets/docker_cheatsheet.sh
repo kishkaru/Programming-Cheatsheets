@@ -13,12 +13,16 @@ docker image rm $(docker image ls -a -q) # Remove all images
 
 # execute image
 docker run image_name
-docker run -d image_name    # run detached
+docker run -d image_name        # run detached
+docker run -it image_name bash  # run & attach
 docker run -p host_port:guest_port image_name
 
 # list of running containers
 docker ps
 docker container ls -a # all containers, incl. stopped
+
+# attach to running container
+docker exec -it container_id bash
 
 # stop container
 docker container stop container_id
@@ -40,6 +44,8 @@ docker run user_id/repo_name:version_tag
 ## Commands for running as a service/app (docker-compose)
 =========================================================
 # run app as service
+docker-compose up -d
+docker-compose down
 docker stack deploy -c docker-compose.yml service_name
 
 # list all apps
