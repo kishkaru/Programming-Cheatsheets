@@ -52,6 +52,7 @@ arr.slice(0, 5);
 arr.splice(index, 1); // remove elems from arr
 arr.sort();
 arr.reverse();
+arr.includes(e);
 arr.findIndex(e => );
 arr.find(e => );
 arr.join(' ');
@@ -200,6 +201,7 @@ var john = {
 
 john.name;
 john['name'];
+'name' in john;
 john.greet();
 john.name = "Sunny";
 john.age = 22;
