@@ -1,10 +1,12 @@
 // comment
 /* multi-line comment */
+console.log(`My name is ${name}.`);
 
 // primitives: number, string, boolean, undefined, null, symbol
 // falsy values: undefined, null, 0, '', NaN
-// typeof(var);
-// isNaN(input);
+typeof(var);
+myList instanceof Array;
+isNaN(input);
 
 // == : equality
 // === : equality & type coersion
@@ -40,13 +42,11 @@ str.startsWith('str');
 str.includes('str');
 str.repeat(numT);
 
-console.log(`My name is ${name}.`);
-
 // Arrays
-var arr = new Array(3)
+var arr = new Array(3);
 arr = [1, 2, 3];
 arr[0] = "foo";
-arr.length();
+arr.length
 arr.indexof("hello");
 arr.slice(0, 5);
 arr.splice(index, 1); // remove elems from arr
@@ -56,7 +56,7 @@ arr.includes(e);
 arr.findIndex(e => );
 arr.find(e => );
 arr.join(' ');
-arr = Array.from(list);
+arr = Array.from(iterable/str, e => );
 
 arr.push("world");    //add to end
 arr.unshift("hello"); //add to begin
@@ -73,16 +73,21 @@ arr.map(function(currEle, idx, arr) {} );
 arr.map(e => { });
 arr.map((e, i) => { return e + i; })
 arr.reduce((acc, cur) => {
-	return acc++;
+  return acc++;
 }, start);
 
-// Map
-const map = new Map();
+// Map (retains keys in insertion order)
+let map = new Map();
+map = new Map(Object.entries(obj));
 map.set(k, v);
 map.get(k);
 map.has(k);
 map.delete(k);
+
 map.size;
+map.keys();
+map.entries();
+map.clear();
 for(let [k, v] of map) { };
 map.forEach((v, k) => { } );
 
@@ -95,7 +100,6 @@ set.size;
 set.clear();
 
 set.forEach(e => {});
-
 
 // If/else
 if (a > b) { }
@@ -193,19 +197,20 @@ function foo() {
 // Objects
 // Object literal (anonymous)
 var john = {
-    name: 'John',
-    greet: function() {
-        return "My name is " + this.name;
-    }
+  name: 'John',
+  greet: function() {
+    return "My name is " + this.name;
+  }
 };
 
+'name' in john;  //  T/F
 john.name;
 john['name'];
-'name' in john;
-john.greet();
 john.name = "Sunny";
+john.greet();
 john.age = 22;
 delete john.age;
+Object.keys(john).forEach((key) => console.log(key, obj[key]))
 
 // Function (obj) constructor
 // returns fn that constructs obj
@@ -268,8 +273,8 @@ john = {
 	first: 'john',
 	last: 'smith'
 }
-const {first, last} = obj;
-const {first: var1, last: var2} = obj;
+const {first, last} = john;
+const {first: var1, last: var2} = john;
 
 // Console / dialog interactions
 console.log("Hello World");
@@ -277,6 +282,12 @@ console.info(john);
 alert('Hey!');
 var input = prompt('Enter something:');
 var choice = confirm('ok?');
+
+// Popup window
+function basicPopup(url) {
+	popupWindow = window.open(url,'popUpWindow','height=500,width=500,left=100,top=100',
+	resizable='yes',scrollbars='yes',toolbar='yes',menubar='no',location='no',directories='no', status='yes');
+}
 
 // DOM selectors
 document.querySelector('#id')
@@ -320,6 +331,10 @@ ele.addEventListener('click', function(event) {
 window.addEventListener('hashChange', fn)
 window.location.hash
 
+// JSON
+JSON.stringify(obj); // to json
+JSON.parse(jsonStr); // from json
+
 // HTTP API
 fetch('url')
 .then(result => {
@@ -330,19 +345,14 @@ fetch('url')
 })
 .catch(error => {} );
 
-const proxy = 'https://cors-anywhere.herokuapp.com';
 import axios from 'axios';
-const resultJson = await axios('${proxy}/url')
+const api = axios.create({ baseURL: 'http://my.api.com' });
+const response = await api.get(`/users?id=${this.id}`, { params: args });
+const response = await api.post(url, post_body, { headers: { 'Content-Type': 'application/json' };
 
 // Redirect
 function redirectTo(sUrl) {
 	window.location = sUrl
-}
-
-// Popup window
-function basicPopup(url) {
-	popupWindow = window.open(url,'popUpWindow','height=500,width=500,left=100,top=100',
-	resizable='yes',scrollbars='yes',toolbar='yes',menubar='no',location='no',directories='no', status='yes');
 }
 
 // Persist data
@@ -350,10 +360,6 @@ function basicPopup(url) {
 localStorage.setItem('id', 'foo');
 localStorage.getItem('id');
 localStorage.removeItem('id');
-
-// Convert to/from JSON
-JSON.stringify(obj);
-JSON.parse(str);
 
 // Cookie: sent to server on every HTTP request
 document.cookie = "myContents=cookie experiment; expires=Mon, 18 Feb 2013 12:00:00 UTC; path=/";
