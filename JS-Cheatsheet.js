@@ -48,8 +48,8 @@ arr = [1, 2, 3];
 arr[0] = "foo";
 arr.length
 arr.indexof("hello");
-arr.slice(0, 5);
-arr.splice(index, 1); // remove elems from arr
+arr.slice(begin, end); // new copy portion of arr
+arr.splice(begin, deleteCount, e); // remove/add elems from arr
 arr.sort();
 arr.reverse();
 arr.includes(e);
@@ -57,6 +57,7 @@ arr.findIndex(e => );
 arr.find(e => );
 arr.join(' ');
 arr = Array.from(iterable/str, e => );
+arr.concat(arr2); // ret new arr
 
 arr.push("world");    //add to end
 arr.unshift("hello"); //add to begin
