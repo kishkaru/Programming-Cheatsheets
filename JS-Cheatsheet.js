@@ -165,24 +165,11 @@ async function fn2() {
   return ids[0];
 }
 
-// Spread op, expand array (splat)
-arr = [1,2];
-foo(...arr); // foo(1,2)
-[...arr, ...arr2]; //merge arrays
-
-// Rest param (accept unlimited extra args)
-function foo(...arr) { } // arr turns into an array
-function foo(bar, ...arr) { }
-foo(1,2,3,4);
-
-// Create new copy of obj
-const secondPerson = { ...Person };
-
 // Import/export modules
-export default 'foo bar baz'; //1
-export const add = (a,b) => a+b; //2
+export default 'foo bar baz'; //1 (default exports)
+export const add = (a,b) => a+b; //2 (named exports)
 
-import someVar from './views/searchView'; //1
+import anyVarName from './views/searchView'; //1
 import { add as a, mult as b, ID} from './views/searchView'; //2
 import * as searchView from './views/searchView'; //2
 
@@ -212,6 +199,23 @@ john.greet();
 john.age = 22;
 delete john.age;
 Object.keys(john).forEach((key) => console.log(key, obj[key]))
+
+// Destructuring objects
+const [name, age] = ['john', 26];
+const {name, greet} = john;
+const {name: var1, greet: var2} = john;
+
+// Spread op: expand arr/obj
+arr = [1,2];
+foo(...arr); // foo(1,2)
+[...arr, ...arr2]; //merge arrays
+const newObj = {...oldObj} // pull out properties
+
+// Rest param: merge into arr (accept unlimited extra args)
+function foo(...arr) { } // args turns into an array
+foo(1,2,3,4); // arr = [1,2,3,4]
+function foo(bar, ...arr) { }
+foo(1,2,3,4); // bar = 1, arr = [2,3,4]
 
 // Function (obj) constructor
 // returns fn that constructs obj
@@ -267,15 +271,6 @@ class SomeClass {
 	property = 'value';
   methodName = () => { }
 }
-
-// Destructuring objects
-const [name, age] = ['john', 26];
-john = {
-	first: 'john',
-	last: 'smith'
-}
-const {first, last} = john;
-const {first: var1, last: var2} = john;
 
 // Console / dialog interactions
 console.log("Hello World");
