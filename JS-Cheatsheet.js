@@ -133,6 +133,7 @@ function foo(param1, param2) {
 var foo = function(param1, param2) {
 	return param1 + param2;
 }
+// func only does one thing, and return. Can omit {} and 'return'
 var foo = (param1, param2) => param1 + param2;
 
 // IIFE (Immediately Invoked Function Expression)
