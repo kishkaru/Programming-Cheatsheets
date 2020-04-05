@@ -34,13 +34,15 @@ str.charAt(0);
 str.toUpperCase();
 str.substring(0,5);
 str.replace('a', 'foo');
-str.split(" ");
 parseInt(str)
 parseFloat(str)
 
 str.startsWith('str');
 str.includes('str');
 str.repeat(numT);
+str.split(" ");
+for (const c of str) { };
+[...str].forEach(c => );
 
 // Arrays
 var arr = new Array(3);
