@@ -75,6 +75,10 @@ l = [e for e in iterable if cond]
 l = [e if cond else e2 for e in iterable]
 l = [e1*e2 for e in iterable1 for e2 in iterable2]
 
+l2 = list(map(lambda x: x**2, l))
+l2 = list(filter(lambda x: x < 0, l))
+e = reduce((lambda x, y: x * y), l) # x = acc, y = curr val
+
 DICTIONARY
 ======
 d = {"key": "val"}
@@ -354,6 +358,12 @@ file.readlines() # list of lines
 with open('file.txt', mode='a+') as file:
   file.write('foo')
 
+JSON
+=====
+import json
+json.dumps(obj) # to json
+json.loads(jsonStr) # from json
+  
 LOGGING
 ========
 import logging
