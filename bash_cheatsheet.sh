@@ -9,6 +9,9 @@ rm
 mkdir
 clear
 exit
+whoami
+hostname
+uname -a
 
 #Utility
 ========
@@ -17,26 +20,29 @@ pssh
 scp
 rsync
 kill
+pkill
 service
+unzip
 tar -xzvf
 script
 awk
 find . -name '*.cfg'
 screen
-uname -a
+tmux
+which
 whatis
-du -hsx * | sort -rh | head -10 (largest files)
+du -hsx * | sort -rh | head -10 #largest files
+neofetch
 
 #Filesystem
 ==========
-df -f
+df -h
+inxi -Sp # paritions and mountpoints
+swapon # swap info
 mount
 umount
 chmod
 chown
-which
-whoami
-hostname
 free -m
 head -n 4 /proc/meminfo 
 
@@ -44,8 +50,8 @@ head -n 4 /proc/meminfo
 ===============
 apt-get update
 apt-get upgrade
-apt-get install
-apt-get remove
+apt install
+apt remove
 
 #Text
 =========
@@ -80,3 +86,7 @@ ncat
 nmap
 netstat
 
+#Graphics
+=============
+nvidia-smi
+vdpauinfo
