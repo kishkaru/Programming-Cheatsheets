@@ -5,12 +5,13 @@ False
 None
 
 type(var)
-str(var) # stringify
 
-7 // 4 # floor division, truncate
 int(var)
+str(var) # stringify
 float(var)
 abs(integer)
+
+7 // 4 # floor division, truncate
 round(floating, precision)
 x ** y # powers
 pow(x, y) # powers
@@ -235,6 +236,43 @@ next(s_iter())
 # Generator expression, lazy eval
 g = (x for x in range(5))
 next(g)
+
+TYPE HINTS (static type checking)
+==========
+from typing import List, Dict
+
+def annotated(x: int, y: List[int]) -> bool:
+  return x < y[0]
+
+def annotated2(x: Dict[int, str]) -> str:
+  return x[0]
+
+from typing import Optional, Any
+
+# x is optional, can be None
+# Any is compatible with every type
+def annotated3(x: Optional[str] = None) -> Any:
+  pass
+
+# forward reference (refer to class before defined)
+class ToDo:
+    @classmethod
+    def list(cls) -> List['ToDo']:
+        return session.query(cls)
+      
+# type alias (Alias == Original, simplify complex type signatures)
+# union = type can be from any of the provided type values
+from typing import Union
+
+GreetingType = Union[List[str], Dict[int, List[str]]]
+def greeting(names: GreetingType) -> GreetingType:
+  pass
+
+# type subtype (Derived subtype of Original)
+# value of type Original cannot be used in places where a value of type Derived is expected
+from typing import NewType
+
+UserId = NewType('UserId', int)
 
 CLASSES
 ==========
