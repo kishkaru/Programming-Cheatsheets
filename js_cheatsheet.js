@@ -6,6 +6,7 @@ console.log(`My name is ${name}.`);
 // falsy values: undefined, null, 0, '', NaN
 typeof(var);
 myList instanceof Array;
+myList.constructor.name;  //Array
 isNaN(input);
 
 // == : equality
