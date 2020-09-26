@@ -1,0 +1,158 @@
+-- CAMERA --
+zoom: scroll wheel
+rotate: right click + move
+pan: middle click + move
+select: left click
+options: ctrl + right click
+
+front: 1
+back: ctrl + 1
+right: 3
+left: ctrl + 3
+top: 7
+bottom: ctrl + 7
+
+Quick tools menu (left) : T (or shift+space)
+Quick tools menu (right): N
+
+Select multiple obj: left click + drag
+alt: shift + left click
+Deselect multiple obj: ctrl + left click + drag
+
+-- MODES --
+object mode: used for add obj, move around
+edit mode: edit mesh
+toggle obj/edit: tab
+
+-- OBJ MODE --
+hold shift to slow down movement
+- MOVE
+move: g + move
+restrict to plane: x, y, z
+restrict to plane, except: shift + x, y, z
+move relative to obj: x,y,z (again)
+move by dist: type in #
+finish: left click
+reset to location to origin: alt + g
+
+- ROTATE
+rotate: r + move
+restrict to plane: x, y, z
+free rotation: r (again)
+move relative to obj: x,y,z (again)
+move by dist: #
+finish: left click
+reset to rotation to original: alt + r
+
+- SCALE
+scale: s + move
+restrict to plane: x, y, z
+restrict to plane, except: shift + x, y, z
+move relative to obj: x,y,z (again)
+move by dist: #
+finish: left click
+reset to scaling to original: alt + S
+
+- 3D CURSOR
+Change pivot point: 3D cursor (shift+space, space)
+Move obj to 3D cursor: shift+s, selection to cursor
+
+add object: shift + a
+(spawns at 3D cursor)
+delete object: x
+merge 2 objects together (into 1 mesh): ctrl + j
+
+-- EDIT MODE --
+edit mode: verticies/edges/faces
+add object (part of same mesh): shift + a
+separate mesh into 2 objs: 
+- select vertexes of obj wanting to separate
+- Mesh > Separate > Selection
+
+- SELECT
+mesh selection mode:
+1) vertex select
+2) edge select
+3) face select
+
+(assuming vertex select)
+select a vertex: left click
+select multiple vertexes: shift + left click
+select an edge: select 2 vertexes
+select a face: select all vertexes making face
+select all faces: a
+deselect all faces: alt + a
+
+select multiple faces: hold left click + pull a box over faces
+select multiple faces (alt): shift + click edges
+
+select points behind (x-ray/wireframe): alt + z
+
+- EXTRUDE (extend obj)
+select a face
+extrude: e + move
+cancel and create new face: right click
+finish: left click
+can scale up/down via face
+select multiple faces for extruding: shift + click
+
+- LOOP CUT (add sub-features)
+-select edge: ctrl + r
+-num cuts: scroll wheel + left click
+-position cuts: move mouse + left click
+-(alt) center cuts: right click
+(auto switches to edge select mode)
+(can scale loop cuts)
+
+add sharp edges:
+(add loopcut next to edge)
+
+merge into 1 face: 
+-select faces
+-del -> dissolve faces
+
+convert face to round: mesh -> transform -> to sphere
+adjust strength: move mouse or enter #
+
+- BEVEL
+add bevel: ctrl + b
+adjust size: move mouse
+finish: left click
+vertex only bevel: ctrl + shift + b
+
+flatten: s + y + 0 + enter
+
+- KNIFE (cut plane) / BISECT (cut object)
+select knife tool (shift + space, k)
+knife cut: 
+left click (start point) + move + left click (end point)
+finish cut: 2x left click, or E
+finish tool: space, or enter
+
+select plane(s) wanting to cut
+select bisect tool (shift + space, shift + 3)
+bisect cut: left click + move
+
+(expand middle)
+- a (select all faces) + bisect horizontally
+- enable xray mode
+- b (box select) + select down
+- g (move) + z (z-axis) + enter negative value
+
+- SMOOTHEN 
+-modifiers panel (wrench) -> add modifier -> generate -> subdivision modifier
+-subdivisons: view=3, render=3
+
+inset (add geometry to face):
+-face select mode
+-select face
+-inset: i + move
+(inset 2x to make ripples go away in round faces)
+
+create hole:
+- object mode, create a new 3D obj (e.g. cube, sphere)
+- scale and move obj to cut point, intersect cut obj
+- add Boolean modifier to cut obj, target=3D obj
+- apply modifier
+- delete 3D obj
+
