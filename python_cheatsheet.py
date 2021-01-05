@@ -91,8 +91,7 @@ d.keys()
 d.values()
 d.items()
 for k,v in d.items():
-for v,k in enumerate(d):
-d = {k:v for v,k in enumerate(l)}
+d2 = {k:v for k,v in d.items()}
 
 TUPLES  #immutable
 =======
@@ -141,7 +140,7 @@ for e in iterable:
   continue
   break
 
-for (i, e) in enumerate(iterable, start=n):
+for (i, e) in enumerate(iterable, start=n): # iterate with index
 for (a,b) in zip(l1, l2):
 
 while cond:
