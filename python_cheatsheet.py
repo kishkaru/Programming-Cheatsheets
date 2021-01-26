@@ -408,3 +408,10 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logging.info("foo")
 
+EXECUTE SHELL
+=============
+import subprocess
+
+subprocess.run(['ls', '-l'], check=True)  # Verify zero exit code
+subprocess.run('ls -l', shell=True)  # Execute as shell
+out = subprocess.run(['ls'], capture_output=True, text=True).stdout  # Grab output
