@@ -38,9 +38,14 @@ for char in s:
 
 print("foo:" , foo)
 "hello {}".format("world")
-"hello {0}".format("world")
+"hello {0} {1}".format("world", "again")
 "hello {w}".format(w = "world")
 "result {r:1.2f}".format(r=0.234)
+
+"""
+multi-line
+{s}
+""".format("string")
 
 f"{var_name}"
 f"{var_name:{padding}.{precision}}"
