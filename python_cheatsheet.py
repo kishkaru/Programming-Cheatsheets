@@ -281,26 +281,29 @@ UserId = NewType('UserId', int)
 CLASSES
 ==========
 class ClassName(SuperClass):
-  class_variable = 'val'
-  __private_var = 0
+  class_variable = 0  # shared by all instances
+  __private_var = 'private'  # only a convention
 
-  def __init__(self, var1=5):
+  def __init__(self, var1, var2=1):
     super().__init__()
-    self.var1 = var1
-    self.__private_var = "foo"
+    self.var1 = var1  # unique to each instance
+    self.class_variable += var2
+    print(self.__class__)
 
   def some_method(self):
     return self.var1
 
-  # class of this object instance is implicitly passed as the first argument 
+  # class of this object instance is implicitly passed as the first argument
+  # useful to create factory methods
   @classmethod
-  def class_methold(this_class, x):
-    print(len(this_class) == x)
+  def class_methold(cls, x):
+    return cls(x, 2)
 
   # neither self nor the class is implicitly passed as the first argument
+  # useful to create utility methods
   @staticmethod
   def static_method(x):
-    print(x)
+    print(x > 10)
     raise NotImplementedError("abstract method")
 
   # stingify object
@@ -308,10 +311,16 @@ class ClassName(SuperClass):
     return f"{self.var1} {self.__private_var}"
 
 instance = ClassName(var1)
+instance = ClassName.class_method(var1)
+instance = instance.class_method(var1)
+ClassName.static_method(var1)
+instance.static_method(var1)
+
 instance.var1
-instance.some_method()
-instance.class_variable
 ClassName.class_variable
+instance.class_variable
+instance.some_method()
+
 del instance
 
 REGEX
